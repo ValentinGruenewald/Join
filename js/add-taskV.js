@@ -42,7 +42,6 @@ function addTask() {
     tasks.push(newTask);
     clearForm();
     renderTasks();
-    return false;
 }
 
 function renderTasks() {
@@ -59,7 +58,6 @@ function renderTasks() {
     </div>
     `;
     }
-    return false;
 }
 
 function clearForm() {
@@ -68,13 +66,20 @@ function clearForm() {
     document.getElementById('description').value = ''
     document.getElementById('due-date').value = ''
     document.getElementById('urgency').value = 'Low'
+    clearUsers()
+    document.getElementById('user_1').classList.add('selected-user');
+    currentUser = users[0]['name'];
 }
 
 
 function selectUser(user) {
-    for (let i = 1; i = users.length; i++) {
+    clearUsers()
+    document.getElementById(`user_${user}`).classList.add('selected-user');
+    currentUser = users[user-1]['name'];
+}
+
+function clearUsers() {
+    for (let i = 1; i < users.length+1; i++) {
         document.getElementById(`user_${i}`).classList.remove('selected-user');
     }
-
-    document.getElementById(`user_${user}`).classList.add('selected-user');
 }
