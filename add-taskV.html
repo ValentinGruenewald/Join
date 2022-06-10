@@ -11,51 +11,54 @@
     </script>
 </head>
 
-<body>
+<body onload="renderTasks()">
     <div class="add-task">
         <h1>Add Task</h1>
 
-        <form onsubmit="addTask()">
+        <div class="form">
             <div class="form-left">
                 <p>TITLE</p>
-                <input type="text" id="text" placeholder="Task" required>
+                <input type="text" id="title" required>
                 <p>CATEGORY</p>
-                <input type="text" required>
+                <input type="text" id="category">
                 <p>DESCRIPTION</p>
-                <input type="text" required>
+                <input type="text" id="description">
             </div>
 
             <div class="form-right">
                 <p>DUE DATE</p>
-                <input type="date" id="date" required>
+                <input type="date" id="due-date">
                 <p>URGENCY</p>
-                <select type="text" name="urgency" id="urgency" required>
-                    <option value="0">Low</option>
-                    <option value="1">Middle</option>
-                    <option value="2">High</option>
+                <select type="text" name="urgency" id="urgency">
+                    <option value="Low">Low</option>
+                    <option value="Middle">Middle</option>
+                    <option value="High">High</option>
                 </select>
                 <p>ASSIGNED TO</p>
                 <div class="users">
                     <div class="user-box">
                         <p>Marco</p>
-                        <div class="user-img">M</div>
+                        <div id="user_1" class="user-img selected-user" onclick="selectUser(1)">M</div>
                     </div>
                     <div class="user-box">
                         <p>Valentin</p>
-                        <div class="user-img">V</div>
+                        <div id="user_2" class="user-img" onclick="selectUser(2)">V</div>
                     </div>
                     <div class="user-box">
                         <p>Tom</p>
-                        <div class="user-img">T</div>
+                        <div id="user_3" class="user-img" onclick="selectUser(3)">T</div>
                     </div>
                     <div class="user-box">
                         <p>Me</p>
-                        <div class="user-img">M</div>
+                        <div id="user_4" class="user-img" onclick="selectUser(4)">M</div>
                     </div>
                 </div>
-                <button>CREATE TASK</button>
+                <button onclick="addTask()">CREATE TASK</button>
             </div>
-        </form>
+        </div>
+    </div>
+
+    <div id="test-tasks-container">
     </div>
 </body>
 
