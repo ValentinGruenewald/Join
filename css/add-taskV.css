@@ -1,0 +1,56 @@
+.add-task {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+form {
+    background-color: lightgray;
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.users {
+    display: flex;
+}
+
+.user-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}
+
+.user-box p {
+    margin: 0;
+
+}
+
+.user-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form button {
+    padding: 10px;
+}

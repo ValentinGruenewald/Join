@@ -12,19 +12,51 @@
 </head>
 
 <body>
-    <h1>add task</h1>
+    <div class="add-task">
+        <h1>Add Task</h1>
 
-    <form action="">
-        <input type="text" id="text" placeholder="text">
-        <input type="text" list="urgencies" placeholder="urgency" id="urgency">
-        <input type="date" id="date">
-        <input type="text">
-        <input type="text">
-    </form>
+        <form onsubmit="addTask()">
+            <div class="form-left">
+                <p>TITLE</p>
+                <input type="text" id="text" placeholder="Task" required>
+                <p>CATEGORY</p>
+                <input type="text" required>
+                <p>DESCRIPTION</p>
+                <input type="text" required>
+            </div>
+
+            <div class="form-right">
+                <p>DUE DATE</p>
+                <input type="date" id="date" required>
+                <p>URGENCY</p>
+                <select type="text" name="urgency" id="urgency" required>
+                    <option value="0">Low</option>
+                    <option value="1">Middle</option>
+                    <option value="2">High</option>
+                </select>
+                <p>ASSIGNED TO</p>
+                <div class="users">
+                    <div class="user-box">
+                        <p>Marco</p>
+                        <div class="user-img">M</div>
+                    </div>
+                    <div class="user-box">
+                        <p>Valentin</p>
+                        <div class="user-img">V</div>
+                    </div>
+                    <div class="user-box">
+                        <p>Tom</p>
+                        <div class="user-img">T</div>
+                    </div>
+                    <div class="user-box">
+                        <p>Me</p>
+                        <div class="user-img">M</div>
+                    </div>
+                </div>
+                <button>CREATE TASK</button>
+            </div>
+        </form>
+    </div>
 </body>
-<datalist id="urgencies">
-    <option value="high urgency">
-    <option value="low urgency">
-</datalist>
 
 </html>
