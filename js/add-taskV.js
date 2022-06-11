@@ -5,7 +5,8 @@ tasks = [
         'description': 'This is Task 1',
         'due-date': '2022-06-10',
         'urgency': 'High',
-        'assigned-to': 'Marco'
+        'assigned-to': 'Marco',
+        'place': `backlog`
     }
 ]
 
@@ -37,27 +38,12 @@ function addTask() {
         'description': `${document.getElementById('description').value}`,
         'due-date': `${document.getElementById('due-date').value}`,
         'urgency': `${document.getElementById('urgency').value}`,
-        'assigned-to': `${currentUser}`
+        'assigned-to': `${currentUser}`,
+        'place': `backlog`
     };
     tasks.push(newTask);
     clearForm();
     renderTasks();
-}
-
-function renderTasks() {
-    document.getElementById('test-tasks-container').innerHTML = ``;
-    for (let i = 0; i < tasks.length; i++) {
-        document.getElementById('test-tasks-container').innerHTML += `
-    <div class="task">
-    ${tasks[i]['title']}
-    ${tasks[i]['category']}
-    ${tasks[i]['description']}
-    ${tasks[i]['due-date']}
-    ${tasks[i]['urgency']}
-    ${tasks[i]['assigned-to']}
-    </div>
-    `;
-    }
 }
 
 function clearForm() {
@@ -81,5 +67,23 @@ function selectUser(user) {
 function clearUsers() {
     for (let i = 1; i < users.length+1; i++) {
         document.getElementById(`user_${i}`).classList.remove('selected-user');
+    }
+}
+
+// This function is for testing purposes only
+function renderTasks() {
+    document.getElementById('test-tasks-container').innerHTML = ``;
+    for (let i = 0; i < tasks.length; i++) {
+        document.getElementById('test-tasks-container').innerHTML += `
+    <div class="task">
+    ${tasks[i]['title']}
+    ${tasks[i]['category']}
+    ${tasks[i]['description']}
+    ${tasks[i]['due-date']}
+    ${tasks[i]['urgency']}
+    ${tasks[i]['assigned-to']}
+    ${tasks[i]['place']}
+    </div>
+    `;
     }
 }
