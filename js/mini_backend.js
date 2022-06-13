@@ -1,6 +1,7 @@
 let jsonFromServer = {};
 let BASE_SERVER_URL;
 
+
 const backend = {
     setItem: function(key, item) {
         jsonFromServer[key] = item;

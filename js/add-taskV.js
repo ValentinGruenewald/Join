@@ -10,7 +10,7 @@ tasks = [
     }
 ]
 
-users = [
+allUsers = [
     {
         'name': 'Marco',
         'selected': true
@@ -30,11 +30,6 @@ users = [
 ]
 
 currentUser = 'Marco';
-
-
-setURL('valentin-gruenewald.developerakademie.net/smallest_backend_ever');
-
-
 
 function addTask() {
     let newTask = {
@@ -61,18 +56,18 @@ function clearForm() {
     document.getElementById('urgency').value = 'Low'
     clearUsers()
     document.getElementById('user_1').classList.add('selected-user');
-    currentUser = users[0]['name'];
+    currentUser = allUsers[0]['name'];
 }
 
 
 function selectUser(user) {
     clearUsers()
     document.getElementById(`user_${user}`).classList.add('selected-user');
-    currentUser = users[user - 1]['name'];
+    currentUser = allUsers[user - 1]['name'];
 }
 
 function clearUsers() {
-    for (let i = 1; i < users.length + 1; i++) {
+    for (let i = 1; i < allUsers.length + 1; i++) {
         document.getElementById(`user_${i}`).classList.remove('selected-user');
     }
 }
