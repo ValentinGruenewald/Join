@@ -31,7 +31,7 @@ allUsers = [
 
 currentUser = 'Marco';
 
-function addTask() {
+async function addTask() {
     let newTask = {
         'title': `${document.getElementById('title').value}`,
         'category': `${document.getElementById('category').value}`,
@@ -43,7 +43,7 @@ function addTask() {
     };
     tasks.push(newTask);
     let tasksAsJSON = JSON.stringify(tasks);
-    backend.setItem(tasksAsJSON);
+    await backend.setItem('tasksAsJSON', tasksAsJSON);
     clearForm();
     renderTasks();
 }
@@ -73,7 +73,10 @@ function clearUsers() {
 }
 
 // This function is for testing purposes only
-function renderTasks() {
+async function renderTasks() {
+
+    let tasksAsJSON = await backend.getItem('tasksAsJSON');
+    tasks = JSON.parse(tasksAsJSON);
 
     document.getElementById('test-tasks-container').innerHTML = ``;
     for (let i = 0; i < tasks.length; i++) {
