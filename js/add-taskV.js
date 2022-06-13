@@ -31,6 +31,11 @@ users = [
 
 currentUser = 'Marco';
 
+
+setURL('valentin-gruenewald.developerakademie.net/smallest_backend_ever');
+
+
+
 function addTask() {
     let newTask = {
         'title': `${document.getElementById('title').value}`,
@@ -42,6 +47,8 @@ function addTask() {
         'place': `backlog`
     };
     tasks.push(newTask);
+    let tasksAsJSON = JSON.stringify(tasks);
+    backend.setItem(tasksAsJSON);
     clearForm();
     renderTasks();
 }
@@ -61,17 +68,18 @@ function clearForm() {
 function selectUser(user) {
     clearUsers()
     document.getElementById(`user_${user}`).classList.add('selected-user');
-    currentUser = users[user-1]['name'];
+    currentUser = users[user - 1]['name'];
 }
 
 function clearUsers() {
-    for (let i = 1; i < users.length+1; i++) {
+    for (let i = 1; i < users.length + 1; i++) {
         document.getElementById(`user_${i}`).classList.remove('selected-user');
     }
 }
 
 // This function is for testing purposes only
 function renderTasks() {
+
     document.getElementById('test-tasks-container').innerHTML = ``;
     for (let i = 0; i < tasks.length; i++) {
         document.getElementById('test-tasks-container').innerHTML += `
