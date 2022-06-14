@@ -1,0 +1,90 @@
+.backlog-head-container{
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    margin-left: -100px;
+}
+
+.backlog-head{
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.backlog-head h5{
+    color: rgb(0, 0, 164);
+    width: 90px;
+}
+
+.backlogs-container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    
+}
+
+.backlog{
+    background-color:#F4F3FB;
+    display: flex;
+    height: 80px;
+ 
+    margin-bottom: 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+    text-align: start;
+    width: 80%;
+}
+
+.profile{
+    min-width: 100px;
+    height: 90px;
+    display: flex;
+    margin-left: 15px;
+    text-align: start;
+    align-items: center;
+    
+}
+
+.category{
+    margin:0px;
+    min-width: 80px;
+    text-align: start;
+}
+
+.description{
+    margin-right: 15px;
+    min-width: 100px;
+   
+}
+
+.profile-picture{
+    margin-right: 20px;
+    width: 90px;
+    background-color: aqua;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+}
+
+
+.Marco{
+    border-left: 5px solid rgb(100, 100, 253);
+}
+
+.Tom{
+    border-left: 5px solid rgb(31, 133, 0);
+}
+
+.Me{
+    border-left: 5px solid rgba(149, 0, 105, 0.883);
+}
+
+.Valentin{
+    border-left: 5px solid rgb(204, 105, 12);
+}

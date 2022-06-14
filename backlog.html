@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/backlog.css">
+    <script src="js/backlog.js"></script>
+    <script src="js/add-taskV.js"></script>
+
+    <script src="js/mini_backend.js"></script>
+    <script>
+        setURL('https://valentin-gruenewald.developerakademie.net/smallest_backend_ever');
+
+        async function init() {
+            await downloadFromServer();
+            backlog();
+        }
+    </script>
+</head>
+
+<body onload="init()">
+    <div>
+        <h2>Backlog</h2>
+        Test test test test test test test
+    </div>
+
+
+    <div class="backlog-head-container">
+            <div class="backlog-head">
+                <div>
+                    <h5>ASSIGNED TO </h5>
+                </div>
+                <div>
+                    <h5>CATEGORY</h5>
+                </div>
+                <div>
+                    <h5>DETAILS</h5>
+                </div>
+            </div>
+      
+        <div class="backlogs-container" id="backlogs">
+
+        </div>
+    </div>
+
+</body>
+
+</html>
