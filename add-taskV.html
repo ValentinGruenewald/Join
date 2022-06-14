@@ -10,13 +10,12 @@
     <script src="js/add-taskV.js"></script>
     <script src="js/mini_backend.js"></script>
     <script>
-    setURL('https://valentin-gruenewald.developerakademie.net/smallest_backend_ever');
+        setURL('https://valentin-gruenewald.developerakademie.net/smallest_backend_ever');
 
-    async function init() {
-    await downloadFromServer();
-    users = JSON.parse(backend.getItem('users')) || [];
-    renderTasks();
-    }
+        async function init() {
+            await downloadFromServer();
+            renderTasks();
+        }
     </script>
 </head>
 

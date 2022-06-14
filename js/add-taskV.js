@@ -12,20 +12,31 @@ tasks = [
 
 allUsers = [
     {
-        'name': 'Marco',
+        'name': 'Marco Scherf',
         'selected': true
     },
     {
-        'name': 'Valentin',
+        'name': 'Valentin Olberding',
         'selected': false
     },
     {
-        'name': 'Tom',
+        'name': 'Tom Petri',
         'selected': false
     },
     {
-        'name': 'Me',
+        'name': 'Valentin Grünewald',
         'selected': false
+    }
+]
+
+users = [
+    {
+        'username': 'valentingruenewald',
+        'password': 'test123'
+    },
+    {
+        'username': 'valentingruenewald2',
+        'password': 'test2'
     }
 ]
 
