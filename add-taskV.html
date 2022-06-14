@@ -24,19 +24,19 @@
     <div class="add-task">
         <h1>Add Task</h1>
 
-        <div class="form">
+        <form class="form" action="return: false" onsubmit="addTask()">
             <div class="form-left">
                 <p>TITLE</p>
                 <input type="text" id="title" required>
                 <p>CATEGORY</p>
-                <input type="text" id="category">
+                <input type="text" id="category" required>
                 <p>DESCRIPTION</p>
-                <input type="text" id="description">
+                <input type="text" id="description" required>
             </div>
 
             <div class="form-right">
                 <p>DUE DATE</p>
-                <input type="date" id="due-date">
+                <input type="date" id="due-date" required>
                 <p>URGENCY</p>
                 <select type="text" name="urgency" id="urgency">
                     <option value="Low">Low</option>
@@ -62,9 +62,9 @@
                         <div id="user_4" class="user-img" onclick="selectUser(4)">M</div>
                     </div>
                 </div>
-                <button onclick="addTask()">CREATE TASK</button>
+                <button>CREATE TASK</button>
             </div>
-        </div>
+        </form>
     </div>
 
     <div id="test-tasks-container">
