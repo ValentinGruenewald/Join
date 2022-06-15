@@ -1,0 +1,35 @@
+.mainContentToDo {
+    margin-right: 50px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.mainContentToDo h2 {
+    text-align: center;
+}
+
+
+.toDoColumn {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: 620px;
+    margin-top: -20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.toDoColumn span {
+    width: 90px;
+    height: 40px;
+    box-sizing: content-box;
+    border: 3px solid;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}

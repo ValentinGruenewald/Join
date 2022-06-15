@@ -1,0 +1,89 @@
+body {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 0;
+}
+
+
+.mainContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.mainContentCategories {
+    background-color: rgb(5 5 149);
+    width: 200px;
+    height: 700px;
+    margin-right: 50px;
+}
+
+
+.joinLogoContainer {
+    display: flex;
+    justify-content: center;
+}
+
+
+.joinLogoContainer img {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+
+.categories {
+    font-family: 'PT Sans';
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.categories span {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.categories span:hover {
+    opacity: 0.6;
+    transition: opacity ease-in-out 225ms;
+}
+
+
+.toDoBox {
+    box-sizing: content-box;
+    border: 3px solid black;
+    height: 40px;
+    width: 80px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+.highlight {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Media Querries */
+@media (max-width: 572px) {
+    .mainContainer {
+        display: flex;
+        justify-content: center;
+
+
+    }
+}
+
+
+@media (max-width: 556px) {
+    .mainContentCategories {
+        margin-left: 50px;
+    }
+}

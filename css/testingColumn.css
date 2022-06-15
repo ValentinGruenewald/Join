@@ -1,0 +1,20 @@
+.mainContentTesting {
+    margin-left: 50px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.mainContentTesting h2 {
+ text-align: center;
+}
+
+
+.TestingColumn {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: 620px;
+    margin-top: -20px;
+}

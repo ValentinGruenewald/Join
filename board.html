@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+
+    <link rel="shortcut icon" href="img/logo.png">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/toDoColumn.css">
+    <link rel="stylesheet" href="css/inProgressColumn.css">
+    <link rel="stylesheet" href="css/testingColumn.css">
+    <link rel="stylesheet" href="css/doneColumn.css">
+    <link rel="stylesheet" href="fonts.css">
+    <script src="script.js"></script>
+</head>
+
+<body onload="updateHTML()">
+
+    <div class="mainContainer">
+        <div class="mainContentCategories">
+            <div class="joinLogoContainer">
+                <img src="img/joinlogo.png">
+            </div>
+            <div class="categories">
+                <span>
+                    Board
+                </span>
+                <span>
+                    Backlog
+                </span>
+                <span>
+                    Add Task
+                </span>
+                <span>
+                    Help
+                </span>
+            </div>
+        </div>
+
+
+        <div class="mainContentToDo">
+            <h2>
+                TO DO
+            </h2>
+            <div id="open" class="toDoColumn" ondrop="moveTo('open')" ondragover="allowDrop(event), highlight('open')">
+            </div>
+        </div>
+
+
+        <div class="mainContentInProgress">
+            <h2>
+                IN PROGRESS
+            </h2>
+            <div id="closed" class="inProgressColumn" ondrop="moveTo('closed')" ondragleave="removeHighlight('closed')" ondragover="allowDrop(event)">
+            </div>
+        </div>
+
+
+        <div class="mainContentTesting">
+            <h2>
+                TESTING
+            </h2>
+            <div class="TestingColumn"></div>
+        </div>
+
+
+        <div class="mainContentDone">
+            <h2>
+                DONE
+            </h2>
+            <div class="DoneColumn"></div>
+        </div>
+
+    </div>
+
+
+</body>
+
+
+
+</html>
