@@ -9,13 +9,13 @@
 
     <link rel="shortcut icon" href="img/logo.png">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/toDoColumn.css">
     <link rel="stylesheet" href="css/inProgressColumn.css">
     <link rel="stylesheet" href="css/testingColumn.css">
     <link rel="stylesheet" href="css/doneColumn.css">
     <link rel="stylesheet" href="fonts.css">
-    <script src="script.js"></script>
+    <script src="js/draggable.js"></script>
 </head>
 
 <body onload="updateHTML()">
@@ -55,7 +55,8 @@
             <h2>
                 IN PROGRESS
             </h2>
-            <div id="closed" class="inProgressColumn" ondrop="moveTo('closed')" ondragleave="removeHighlight('closed')" ondragover="allowDrop(event)">
+            <div id="closed" class="inProgressColumn" ondrop="moveTo('closed')" ondragleave="removeHighlight('closed')"
+                ondragover="allowDrop(event)">
             </div>
         </div>
 
