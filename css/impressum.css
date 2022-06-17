@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 80%;
+    height: 100%;
+    padding-left: 25px;
+}
+
+.d-none {
+    display: none;
+}
+
+h2,
+h3 {
+    color: rgb(10, 31, 133);
+}
+
+.container {
+    height: calc(100vh - 40px);
+    margin: 20px 0;
+}
+
+.flex-align-center {
+    display: flex;
+    align-items: center;
+}
+
+.active {
+    border-left: 4px solid white;
+}
+
+.impressum-container {
+    padding: 10px;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: rgb(244, 243, 251);
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+    height: 100%;
+    background-color: rgb(30, 49, 144);
+    color: white;
+}
+
+.nav-link {
+    border-left: 4px solid transparent;
+}
+
+.nav-link:hover {
+    border-left: 4px solid white;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding-left: 50px;
+    font-size: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+li {
+    padding: 10px 0;
+}
+
+.head {
+    flex-direction: column;
+    width: 100%;
+    padding-top: 50px;
+}
+
+.logo {
+    width: 60px;
+}
+
+.nav-footer {
+    padding-bottom: 20px;
+}
+
+.user span {
+    border: 3px solid white;
+    border-radius: 100%;
+    padding: 10px;
+}
+
+@media (max-width: 1000px) {
+    #mobile {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    main {
+        width: 100%;
+        padding: 50px 25px 0 25px;
+    }
+    nav {
+        margin-top: 50px;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.5s ease-in-out;
+        width: 0;
+    }
+    .show {
+        display: flex !important;
+        align-self: center;
+        width: 100%;
+        height: calc(100vh - 50px);
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0s, opacity 0.5s ease-in-out;
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    li {
+        width: 150px;
+    }
+    .container {
+        height: unset;
+        margin: 0;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 450px) {
+    main {
+        padding: 50px 0;
+    }
+}

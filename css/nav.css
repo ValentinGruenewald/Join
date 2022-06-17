@@ -1,0 +1,134 @@
+/* MUSS GELÖSCHT WERDEN */
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+
+/* ********************* */
+
+main {
+    width: 80%;
+    height: 100%;
+    padding-left: 25px;
+}
+
+.d-none {
+    display: none;
+}
+
+.container {
+    height: calc(100vh - 40px);
+    margin: 20px 0;
+}
+
+.active {
+    border-left: 4px solid white;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+    height: 100%;
+    background-color: rgb(30, 49, 144);
+    color: white;
+}
+
+.nav-link {
+    border-left: 4px solid transparent;
+}
+
+.nav-link:hover {
+    border-left: 4px solid white;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding-left: 50px;
+    font-size: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+li {
+    padding: 10px 0;
+}
+
+.head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 50px;
+}
+
+.logo {
+    width: 60px;
+}
+
+.nav-footer {
+    padding-bottom: 20px;
+}
+
+.user span {
+    border: 3px solid white;
+    border-radius: 100%;
+    padding: 10px;
+}
+
+@media (max-width: 1000px) {
+    #mobile {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    main {
+        width: 100%;
+        padding: 50px 25px 0 25px;
+    }
+    nav {
+        margin-top: 50px;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.5s ease-in-out;
+        width: 0;
+    }
+    .show {
+        display: flex !important;
+        align-items: center;
+        width: 100%;
+        height: calc(100vh - 50px);
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0s, opacity 0.5s ease-in-out;
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    li {
+        width: 150px;
+    }
+    .container {
+        height: unset;
+        margin: 0;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 450px) {
+    main {
+        padding: 50px 0;
+    }
+}
