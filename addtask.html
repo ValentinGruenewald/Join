@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+    <link rel="stylesheet" href="css/addtask.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <script src="js/nav.js"></script>
+    <script src="js/addtask.js"></script>
+    <script src="js/mini_backend.js"></script>
+    <script>
+        setURL('https://valentin-gruenewald.developerakademie.net/smallest_backend_ever');
+
+        async function init() {
+            await downloadFromServer();
+            renderTasks();
+        }
+    </script>
+</head>
+
+
+<body onload="init()">
+    <div class="d-none" id="mobile" onclick="openMenu()">
+        <img src="img/menu.png" id="mobile-img">
+    </div>
+    <nav id="nav">
+        <div class="head flex-align-center">
+            <img class="logo" src="img/logo.png" alt="Logo">
+            <ul>
+                <li class="nav-link"><a href="board.html">Board</a></li>
+                <li class="nav-link"><a href="backlog.html">Backlog</a></li>
+                <li class="active"><a href="addtask.html">Add Task</a></li>
+                <li class="nav-link"><a href="#">Help</a></li>
+            </ul>
+        </div>
+        <div class="nav-footer">
+            <div class="user">
+                <span>MS</span>
+            </div>
+        </div>
+    </nav>
+    <main id="content">
+        <div class="add-task">
+            <h1>Add Task</h1>
+
+            <form class="form" action="return: false" onsubmit="addTask()">
+                <div class="form-left">
+                    <p>TITLE</p>
+                    <input type="text" id="title" required>
+                    <p>CATEGORY</p>
+                    <input type="text" id="category" required>
+                    <p>DESCRIPTION</p>
+                    <input type="text" id="description" required>
+                </div>
+
+                <div class="form-right">
+                    <p>DUE DATE</p>
+                    <input type="date" id="due-date" required>
+                    <p>URGENCY</p>
+                    <select type="text" name="urgency" id="urgency">
+                        <option value="Low">Low</option>
+                        <option value="Middle">Middle</option>
+                        <option value="High">High</option>
+                    </select>
+                    <p>ASSIGNED TO</p>
+                    <div class="users">
+                        <div class="user-box">
+                            <p>Marco</p>
+                            <div id="user_1" class="user-img selected-user" onclick="selectUser(1)">M</div>
+                        </div>
+                        <div class="user-box">
+                            <p>Valentin</p>
+                            <div id="user_2" class="user-img" onclick="selectUser(2)">V</div>
+                        </div>
+                        <div class="user-box">
+                            <p>Tom</p>
+                            <div id="user_3" class="user-img" onclick="selectUser(3)">T</div>
+                        </div>
+                        <div class="user-box">
+                            <p>Me</p>
+                            <div id="user_4" class="user-img" onclick="selectUser(4)">M</div>
+                        </div>
+                    </div>
+                    <button>CREATE TASK</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="test-tasks-container">
+        </div>
+    </main>
+</body>
+
+
+</html>
