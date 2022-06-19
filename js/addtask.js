@@ -99,3 +99,5 @@ function clearUsers() {
     for (let i = 1; i < allUsers.length + 1; i++) {
         document.getElementById(`user_${i}`).classList.remove('selected-user');
     }
+}
+
