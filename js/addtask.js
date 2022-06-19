@@ -1,17 +1,14 @@
-tasks = [
-    {
-        'title': 'Title1',
-        'category': 'Category1',
-        'description': 'This is Task 1',
-        'due-date': '2022-06-10',
-        'urgency': 'High',
-        'assigned-to': 'Marco',
-        'place': `backlog`
-    }
-]
+tasks = [{
+    'title': 'Title1',
+    'category': 'Category1',
+    'description': 'This is Task 1',
+    'due-date': '2022-06-10',
+    'urgency': 'High',
+    'assigned-to': 'Marco',
+    'place': `backlog`
+}]
 
-allUsers = [
-    {
+allUsers = [{
         'name': 'Marco Scherf',
         'selected': true
     },
@@ -29,8 +26,7 @@ allUsers = [
     }
 ]
 
-users = [
-    {
+users = [{
         'username': 'valentingruenewald',
         'password': 'test123'
     },
@@ -65,7 +61,7 @@ function clearForm() {
     document.getElementById('due-date').value = ''
     document.getElementById('urgency').value = 'Low'
     clearUsers()
-    
+
 }
 
 
@@ -89,6 +85,9 @@ async function renderTasks() {
     ${tasks[i]['place']}
     </div>
     `;
+    }
+}
+
 function selectUser(user) {
     clearUsers()
     document.getElementById(`user_${user}`).classList.add('selected-user');
@@ -100,4 +99,3 @@ function clearUsers() {
         document.getElementById(`user_${i}`).classList.remove('selected-user');
     }
 }
-
