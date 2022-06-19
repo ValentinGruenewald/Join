@@ -69,7 +69,6 @@ function clearForm() {
 }
 
 
-<<<<<<< HEAD
 
 // This function is for testing purposes only
 async function renderTasks() {
@@ -90,7 +89,6 @@ async function renderTasks() {
     ${tasks[i]['place']}
     </div>
     `;
-=======
 function selectUser(user) {
     clearUsers()
     document.getElementById(`user_${user}`).classList.add('selected-user');
@@ -100,6 +98,4 @@ function selectUser(user) {
 function clearUsers() {
     for (let i = 1; i < allUsers.length + 1; i++) {
         document.getElementById(`user_${i}`).classList.remove('selected-user');
->>>>>>> d953a63df7d5f27f24ed078b077ea59cc0ad62ba
     }
-}

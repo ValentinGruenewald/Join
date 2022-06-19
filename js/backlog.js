@@ -1,3 +1,23 @@
+allUsers = [
+    {
+        'name': 'Marco Scherf',
+        'selected': true
+    },
+    {
+        'name': 'Valentin Olberding',
+        'selected': false
+    },
+    {
+        'name': 'Tom Petri',
+        'selected': false
+    },
+    {
+        'name': 'Valentin Grünewald',
+        'selected': false
+    }
+]
+
+
 
 async function backlog(){
 
@@ -102,9 +122,9 @@ function generateTask(i){
                         <div id="user_4" class="user-img" onclick="selectUser(4)">M</div>
                     </div>
                 </div>
-                <div>
-                    <button onclick="cancelTask()" class="button-to-board">CANCEL</button>
-                <button class="button-to-board">ADD TO BOARD</button>
+                <div class="buttons">
+                <button onclick="cancelTask()" class="cancel-button">CANCEL</button>
+                <button class="addToBoard-button">ADD TO BOARD</button>
                 </div>
             </div>
         </form>
