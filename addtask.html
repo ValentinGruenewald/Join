@@ -16,7 +16,6 @@
 
         async function init() {
             await downloadFromServer();
-            renderTasks();
         }
     </script>
 </head>
@@ -44,52 +43,52 @@
     </nav>
     <main id="content">
         <div class="add-task">
-            <h1>Add Task</h1>
+            <div class="title">
+                <h1>Add Task</h1>
+                <h3 class="text-blue">Learning Management System Project</h3>
+            </div>
 
             <form class="form" action="return: false" onsubmit="addTask()">
                 <div class="form-left">
-                    <p>TITLE</p>
+                    <p class="text-blue">TITLE</p>
                     <input type="text" id="title" required>
-                    <p>CATEGORY</p>
-                    <input type="text" id="category" required>
-                    <p>DESCRIPTION</p>
+                    <p class="text-blue">CATEGORY</p>
+                    <select type="text" name="category" id="category">
+                        <option value="Low">Management</option>
+                        <option value="Middle">Design</option>
+                        <option value="High">Sales</option>
+                    </select>
+                    <p class="text-blue">DESCRIPTION</p>
                     <input type="text" id="description" required>
                 </div>
 
                 <div class="form-right">
-                    <p>DUE DATE</p>
+                    <p class="text-blue">DUE DATE</p>
                     <input type="date" id="due-date" required>
-                    <p>URGENCY</p>
+                    <p class="text-blue">URGENCY</p>
                     <select type="text" name="urgency" id="urgency">
                         <option value="Low">Low</option>
                         <option value="Middle">Middle</option>
                         <option value="High">High</option>
                     </select>
-                    <p>ASSIGNED TO</p>
+                    <p class="text-blue">ASSIGNED TO</p>
                     <div class="users">
                         <div class="user-box">
-                            <p>Marco</p>
-                            <div id="user_1" class="user-img selected-user" onclick="selectUser(1)">M</div>
+                            <div id="user_1" class="user-img selected-user" onclick="selectUser(1)">MS</div>
                         </div>
                         <div class="user-box">
-                            <p>Valentin</p>
-                            <div id="user_2" class="user-img" onclick="selectUser(2)">V</div>
+                            <div id="user_2" class="user-img" onclick="selectUser(2)">VO</div>
                         </div>
                         <div class="user-box">
-                            <p>Tom</p>
-                            <div id="user_3" class="user-img" onclick="selectUser(3)">T</div>
+                            <div id="user_3" class="user-img" onclick="selectUser(3)">TP</div>
                         </div>
                         <div class="user-box">
-                            <p>Me</p>
-                            <div id="user_4" class="user-img" onclick="selectUser(4)">M</div>
+                            <div id="user_4" class="user-img" onclick="selectUser(4)">VG</div>
                         </div>
                     </div>
                     <button>CREATE TASK</button>
                 </div>
             </form>
-        </div>
-
-        <div id="test-tasks-container">
         </div>
     </main>
 </body>
