@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/backlog.css">
+    <link rel="stylesheet" href="css/nav.css">
     <script src="js/backlog.js"></script>
     <script src="js/add-taskV.js"></script>
 
@@ -22,9 +23,34 @@
 </head>
 
 <body onload="init()">
-    <div>
-        <h2>Backlog</h2>
-        Test test test test test test test
+
+    <div id="change-task" class="change-task-container d-none ">
+       
+        </div>
+
+    <div class="main-div">
+        <nav class="flex-align-center">
+            <div class="head flex-align-center">
+                <img class="logo" src="img/logo.png" alt="Logo">
+                <ul>
+                    <li class="active"><a href="../board.html">Board</a></li>
+                    <li class="nav-link"><a href="backlog.html">Backlog</a></li>
+                    <li class="active"><a href="addtask.html">Add Task</a></li>
+                    <li class="active"><a href="../help.html">Help</a></li>
+                </ul>
+            </div>
+            <div class="nav-footer">
+                <div class="user">
+                    <Span>MS</Span>
+                </div>
+            </div>
+    
+        </nav>
+
+<div class="backlog-content">
+    <div class="headline-backlog-container">
+        <h1>Backlog</h2>
+       
     </div>
 
 
@@ -45,7 +71,8 @@
 
         </div>
     </div>
-
+    </div>
+</div>
 </body>
 
 </html>

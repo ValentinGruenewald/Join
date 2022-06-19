@@ -66,22 +66,10 @@ function clearForm() {
     document.getElementById('due-date').value = ''
     document.getElementById('urgency').value = 'Low'
     clearUsers()
-    document.getElementById('user_1').classList.add('selected-user');
-    currentUser = allUsers[0]['name'];
+    
 }
 
 
-function selectUser(user) {
-    clearUsers()
-    document.getElementById(`user_${user}`).classList.add('selected-user');
-    currentUser = allUsers[user - 1]['name'];
-}
-
-function clearUsers() {
-    for (let i = 1; i < allUsers.length + 1; i++) {
-        document.getElementById(`user_${i}`).classList.remove('selected-user');
-    }
-}
 
 // This function is for testing purposes only
 async function renderTasks() {
