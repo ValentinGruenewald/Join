@@ -16,12 +16,24 @@
 
         async function init() {
             await downloadFromServer();
+            renderUsers();
         }
     </script>
 </head>
 
 
 <body onload="init()">
+    <div id="add-user" class="d-none">
+        <h2>New User</h2>
+        <div>
+            <input id="new-user-first-name" type="text" placeholder="First name">
+            <input id="new-user-last-name" type="text" placeholder="Last name">
+        </div>
+        <div>
+            <button onclick="addUser()">Add User</button>
+            <button class="cancel-button" onclick="closeAddUser()">Cancel</button>
+        </div>
+    </div>
     <div class="d-none" id="mobile" onclick="openMenu()">
         <img src="img/menu.png" id="mobile-img">
     </div>
@@ -72,19 +84,8 @@
                         <option value="High">High</option>
                     </select>
                     <p class="text-blue">ASSIGNED TO</p>
-                    <div class="users">
-                        <div class="user-box">
-                            <div id="user_1" class="user-img selected-user" onclick="selectUser(1)">MS</div>
-                        </div>
-                        <div class="user-box">
-                            <div id="user_2" class="user-img" onclick="selectUser(2)">VO</div>
-                        </div>
-                        <div class="user-box">
-                            <div id="user_3" class="user-img" onclick="selectUser(3)">TP</div>
-                        </div>
-                        <div class="user-box">
-                            <div id="user_4" class="user-img" onclick="selectUser(4)">VG</div>
-                        </div>
+                    <div id="users">
+
                     </div>
                     <button>CREATE TASK</button>
                 </div>

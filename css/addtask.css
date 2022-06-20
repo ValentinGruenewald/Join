@@ -54,8 +54,9 @@ h3 {
     margin-left: 20px;
 }
 
-.users {
+#users {
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 5px;
 }
 
@@ -64,24 +65,43 @@ h3 {
     flex-direction: column;
     align-items: center;
     margin: 5px;
+    cursor: pointer;
 }
 
 .user-box p {
     margin: 0;
-
 }
 
 .user-img {
     width: 50px;
     height: 50px;
     border-radius: 100%;
-    background-color: rgb(185, 185, 185);
+    background-color: #D8D8D8;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.user-img:hover {
+    background-color: rgb(172, 172, 172);
+}
+
+.user-img img {
+    width: 100%;
+}
+
+.user-img img:hover {
+    width: 100%;
+    opacity: 50%;
+}
+
+
+
 .selected-user {
+    background-color: gray;
+}
+
+.selected-user:hover {
     background-color: gray;
 }
 
@@ -102,6 +122,11 @@ button {
     font-weight: 700;
     width: 130px;
     height: 50px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(34, 57, 169);
 }
 
 input {
@@ -120,6 +145,42 @@ select {
 
 #description {
     height: 75px;
+}
+
+#add-user {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    left: 40%;
+    top: 40%;
+    background-color: #e5e5e5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+#add-user h2 {
+    margin: 0;
+}
+
+#add-user button {
+    width: 30%;
+    margin-right: 5px;
+}
+
+.cancel-button {
+    background-color: transparent;
+    color: rgb(30, 49, 144);
+}
+
+.cancel-button:hover {
+    background-color: #dadada;
+}
+
+.d-none {
+    display: none !important;
 }
 
 @media (max-width: 1000px) {
@@ -164,5 +225,10 @@ select {
 
     select {
         width: 65%;
+    }
+
+    #users {
+        margin-left: 15%;
+        margin-right: 15%;
     }
 }
