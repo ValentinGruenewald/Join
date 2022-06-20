@@ -67,30 +67,6 @@ function clearForm() {
     renderUsers();
 }
 
-
-
-// This function is for testing purposes only
-async function renderTasks() {
-
-    let tasksAsJSON = await backend.getItem('tasksAsJSON');
-    tasks = JSON.parse(tasksAsJSON);
-
-    document.getElementById('test-tasks-container').innerHTML = ``;
-    for (let i = 0; i < tasks.length; i++) {
-        document.getElementById('test-tasks-container').innerHTML += `
-    <div class="task">
-    ${tasks[i]['title']}
-    ${tasks[i]['category']}
-    ${tasks[i]['description']}
-    ${tasks[i]['due-date']}
-    ${tasks[i]['urgency']}
-    ${tasks[i]['assigned-to']}
-    ${tasks[i]['place']}
-    </div>
-    `;
-    }
-}
-
 function selectUser(user) {
     clearUsers()
     document.getElementById(`user_${user}`).classList.add('selected-user');
