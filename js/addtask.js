@@ -118,11 +118,7 @@ function closeAddUser() {
 
 async function addUser() {
     if (checkIfNewUserIsValid() == true) {
-        let newUser = {
-            'first-name': document.getElementById('new-user-first-name').value,
-            'last-name': document.getElementById('new-user-last-name').value,
-            'selected': false
-        };
+        let newUser = newUserBlueprint();
         allUsers.push(newUser);
         let allUsersAsJSON = JSON.stringify(allUsers);
         await backend.setItem('allUsersAsJSON', allUsersAsJSON);
@@ -132,6 +128,14 @@ async function addUser() {
     } else {
         alert('Please enter your full name.');
     }
+}
+
+function newUserBlueprint() {
+    return {
+        'first-name': document.getElementById('new-user-first-name').value,
+        'last-name': document.getElementById('new-user-last-name').value,
+        'selected': false
+    };
 }
 
 function checkIfNewUserIsValid() {
