@@ -16,6 +16,10 @@
 
         async function init() {
             await downloadFromServer();
+            let tasksAsJSON = await backend.getItem('tasksAsJSON');
+            tasks = JSON.parse(tasksAsJSON);
+            let allUsersAsJSON = await backend.getItem('allUsersAsJSON');
+            allUsers = JSON.parse(allUsersAsJSON);
             renderUsers();
         }
     </script>
@@ -66,9 +70,9 @@
                     <input type="text" id="title" required>
                     <p class="text-blue">CATEGORY</p>
                     <select type="text" name="category" id="category">
-                        <option value="Low">Management</option>
-                        <option value="Middle">Design</option>
-                        <option value="High">Sales</option>
+                        <option value="Management">Management</option>
+                        <option value="Design">Design</option>
+                        <option value="Sales">Sales</option>
                     </select>
                     <p class="text-blue">DESCRIPTION</p>
                     <input type="text" id="description" required>

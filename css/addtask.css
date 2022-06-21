@@ -61,6 +61,7 @@ h3 {
 }
 
 .user-box {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,6 +71,13 @@ h3 {
 
 .user-box p {
     margin: 0;
+}
+
+.delete-user {
+    position: absolute;
+    width: 15px;
+    right: 35px;
+    top: 3px;
 }
 
 .user-img {
@@ -148,9 +156,10 @@ select {
 }
 
 #add-user {
+    z-index: 100;
     position: absolute;
-    width: 20%;
-    height: 20%;
+    width: 200px;
+    height: 250px;
     left: 40%;
     top: 40%;
     background-color: #e5e5e5;
@@ -165,8 +174,12 @@ select {
     margin: 0;
 }
 
+#add-user input {
+    margin-bottom: 5px;
+}
+
 #add-user button {
-    width: 30%;
+    width: 80px;
     margin-right: 5px;
 }
 
@@ -176,7 +189,32 @@ select {
 }
 
 .cancel-button:hover {
-    background-color: #dadada;
+    background-color: #cacaca;
+}
+
+.delete-user-window {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 99;
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute;
+    right: -60px;
+    bottom: 60px;
+    width: 200px;
+    height: 120px;
+    background-color: #dddddd;
+    box-shadow: -2px 3px 10px -2px rgba(0, 0, 0, 0.8);
+}
+
+.delete-user-window div {
+    display: flex;
+}
+
+.delete-user-window button {
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
 .d-none {
@@ -230,5 +268,23 @@ select {
     #users {
         margin-left: 15%;
         margin-right: 15%;
+    }
+
+    #add-user {
+        left: 25%;
+    }
+
+    .delete-user-window {
+        position: fixed;
+        width: 60%;
+        bottom: 60px;
+        left: 15%;
+    }
+}
+
+@media (max-width: 450px) {
+    #add-user {
+        width: 60%;
+        left: 5%;
     }
 }

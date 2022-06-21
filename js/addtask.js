@@ -1,12 +1,4 @@
-tasks = [{
-    'title': 'Title1',
-    'category': 'Category1',
-    'description': 'This is Task 1',
-    'due-date': '2022-06-10',
-    'urgency': 'High',
-    'assigned-to': 'Marco',
-    'place': `backlog`
-}]
+tasks = []
 
 allUsers = [{
     'first-name': 'Marco',
@@ -86,6 +78,14 @@ function renderUsers() {
     for (let i = 0; i < allUsers.length; i++) {
         document.getElementById('users').innerHTML += `
         <div class="user-box">
+        <img id="delete-user_${i}" class="delete-user" onclick="openDeleteUserWindow(${i})" src="img/close.png">
+        <div id="delete-user-window_${i}" class="delete-user-window d-none">
+            Are you sure you want to remove the user ${allUsers[i]['first-name']} ${allUsers[i]['last-name']}?
+            <div>
+                <button type="button" onclick="deleteUser(${i})">Remove</button>
+                <button class="cancel-button" type="button" onclick="closeAllDeleteUserWindows()">Cancel</button>
+            </div>
+        </div>
         <div id="user_${i}" class="user-img" onclick="selectUser(${i})">${allUsers[i]['first-name'].charAt(0) + allUsers[i]['last-name'].charAt(0)}</div>
         </div>`;
     }
@@ -103,6 +103,7 @@ function renderUsers() {
 }
 
 function openAddUser() {
+    closeAllDeleteUserWindows();
     document.getElementById('open-add-user').classList.add('d-none');
     setTimeout(function () {
         document.getElementById('open-add-user').classList.remove('d-none');
@@ -115,7 +116,7 @@ function closeAddUser() {
     clearAddUser();
 }
 
-function addUser() {
+async function addUser() {
     if (checkIfNewUserIsValid() == true) {
         let newUser = {
             'first-name': document.getElementById('new-user-first-name').value,
@@ -123,6 +124,8 @@ function addUser() {
             'selected': false
         };
         allUsers.push(newUser);
+        let allUsersAsJSON = JSON.stringify(allUsers);
+        await backend.setItem('allUsersAsJSON', allUsersAsJSON);
         renderUsers();
         closeAddUser();
         clearAddUser();
@@ -146,4 +149,23 @@ function checkIfNewUserIsValid() {
 function clearAddUser() {
     document.getElementById('new-user-first-name').value = '';
     document.getElementById('new-user-last-name').value = '';
+}
+
+function openDeleteUserWindow(user) {
+    closeAddUser();
+    closeAllDeleteUserWindows();
+    document.getElementById(`delete-user-window_${user}`).classList.remove('d-none');
+}
+
+function closeAllDeleteUserWindows() {
+    for (let i = 0; i < allUsers.length; i++) {
+        document.getElementById(`delete-user-window_${i}`).classList.add('d-none');
+    }
+}
+
+async function deleteUser(user) {
+    allUsers.splice(user, 1);
+    let allUsersAsJSON = JSON.stringify(allUsers);
+    await backend.setItem('allUsersAsJSON', allUsersAsJSON);
+    renderUsers();
 }
