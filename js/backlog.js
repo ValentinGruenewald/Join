@@ -6,13 +6,8 @@ async function backlog() {
     let test = document.getElementById('backlogs');
     test.innerHTML = ``;
 
-<<<<<<< HEAD
-    for (let i = 0; i < tasks.length; i++) {
-
-=======
      for(let i = 0; i < tasks.length; i++){
         if(tasks[i].place == 'backlog'){
->>>>>>> eb6479858ddbbf68e44e31f51991408da765ba85
         test.innerHTML += `<div     onclick="openTask(${i})" class="backlog  ${tasks[i]['assigned-to']}">
                                
                                 <div class="profile">
@@ -121,19 +116,10 @@ function cancelTask() {
     document.getElementById('change-task').classList.add('d-none')
 }
 
-<<<<<<< HEAD
-
-function pushToBoard(i) {
-    tasks[i]['place'] = 'open';
-
-    updateBacklog();
-    backlog();
-=======
 function pushToBoard(i){
         tasks[i].place = 'open'; 
         updateBacklog();
         backlog();
->>>>>>> eb6479858ddbbf68e44e31f51991408da765ba85
 }
 
 async function updateBacklog() {

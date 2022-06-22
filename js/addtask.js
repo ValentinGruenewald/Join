@@ -15,11 +15,11 @@ async function addTask() {
 }
 
 function clearForm() {
-    document.getElementById('title').value = ''
-    document.getElementById('category').value = ''
-    document.getElementById('description').value = ''
-    document.getElementById('due-date').value = ''
-    document.getElementById('urgency').value = 'Low'
+    document.getElementById('title').value = '';
+    document.getElementById('category').value = 'Management';
+    document.getElementById('description').value = '';
+    document.getElementById('due-date').value = '';
+    document.getElementById('urgency').value = 'Low';
     renderUsers();
 }
 
