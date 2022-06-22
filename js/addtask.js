@@ -36,7 +36,28 @@ function clearUsers() {
 }
 
 function renderUsers() {
-    console.log(allUsers);
+    if (allUsers == '') {
+        allUsers = [{
+            'first-name': 'Marco',
+            'last-name': 'Scherf',
+            'selected': true
+        },
+        {
+            'first-name': 'Valentin',
+            'last-name': 'Olberding',
+            'selected': false
+        },
+        {
+            'first-name': 'Tom',
+            'last-name': 'Petri',
+            'selected': false
+        },
+        {
+            'first-name': 'Valentin',
+            'last-name': 'Grünewald',
+            'selected': false
+        }];
+    }
 
     document.getElementById('users').innerHTML = '';
     for (let i = 0; i < allUsers.length; i++) {

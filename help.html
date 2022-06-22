@@ -7,26 +7,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help</title>
     <link rel="shortcut icon" href="img/logo.png">
-
     <link rel="stylesheet" href="css/help.css">
-    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <script src="js/nav.js"></script>
+
 </head>
 
 <body>
-    
-    <h1>Beschreibung</h1>
+    <nav id="nav">
+        <div class="head flex-align-center">
+            <img class="logo" src="img/logo.png" alt="Logo">
+            <ul>
+                <li class="nav-link"><a href="board.html">Board</a></li>
+                <li class="nav-link"><a href="backlog.html">Backlog</a></li>
+                <li class="nav-link"><a href="addtask.html">Add Task</a></li>
+                <li class="active"><a href="help.html">Help</a></li>
+                <li class="nav-link"><a href="impressum.html">Impressum</a></li>
+            </ul>
+        </div>
+        <div class="nav-footer">
+            <div class="user">
+                <span id="active-user">GG</span>
+            </div>
+        </div>
+    </nav>
+    <main id="content">
+        <h1>Help</h1>
+        <h3>Learning Management System Project</h3>
 
-    <p>
-        Fülle in dem Reiter "Aufgabe hinzufügen", die angegebenen Felder aus. <br>
-        Klicke anschließend auf den Button "Aufgabe erstellen" oder auf den Button "Abbrechen", um deinen Text zu
-        überarbeiten.<br>
-        <br>
-        Danach wird deine Aufgabe dem "Rückstand" hinzugefügt. Dort wird die jeweilige Aufgabe, der jeweiligen Person,
-        mit der Kategorie und den Details zugewiesen.<br>
-        <br>
-        Zum Schluss wird die Aufgabe der "Tafel" hinzugefügt, wo sie dann in die entsprechenden Felder verschoben werden
-        kann. (Zu erledigen, in Arbeit, am Testen, erledigt).<br>
-    </p>
+        <p>
+            In the "Add task" tab, fill in the specified fields. Then click the "Create task" button to create the
+            task.
+            Don't forget to assign your task to the right user.<br><br>
+            After that your task will now appear in the tab "Backlog". There you can click on a task to edit it or to
+            move it to the board.<br><br>
+            Once the task is moved to the board, you can now see the task in the tab "Board", where it is now in the column "To Do".<br><br>
+            You can now drag the task to one of the other columns ("In progress", "Testing" or "Done") and drop it there
+            to show the progress you've made so far with the specific task.
+        </p>
 
 
 
