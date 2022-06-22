@@ -25,7 +25,7 @@ let allUsers = [{
 ];
 
 
-let currentUser = 'Marco';
+let currentUser = 'Marco Scherf';
 
 async function init() {
     await downloadFromServer();
