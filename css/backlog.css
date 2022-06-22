@@ -173,3 +173,8 @@
 .buttons{
     display: flex;
 }
+
+.users{
+    display: flex;
+    flex-wrap: wrap;
+}
