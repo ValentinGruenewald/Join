@@ -1,14 +1,12 @@
+async function backlog() {
 
+    // let tasksAsJSON = await backend.getItem('tasksAsJSON');
+    // tasks = JSON.parse(tasksAsJSON);
 
-async function backlog(){
-
-    let tasksAsJSON = await backend.getItem('tasksAsJSON');
-    tasks = JSON.parse(tasksAsJSON);
-    
     let test = document.getElementById('backlogs');
     test.innerHTML = ``;
 
-     for(let i = 0; i < tasks.length; i++){
+    for (let i = 0; i < tasks.length; i++) {
 
         test.innerHTML += `<div     onclick="openTask(${i})" class="backlog  ${tasks[i]['assigned-to']}">
                                
@@ -32,9 +30,9 @@ async function backlog(){
     }
 }
 
-function openTask(i){
+function openTask(i) {
     document.getElementById('change-task').classList.remove('d-none')
-    document.getElementById('change-task').innerHTML = generateTask(i); 
+    document.getElementById('change-task').innerHTML = generateTask(i);
     document.getElementById('title' + i).value = `${tasks[i]['title']}`
     document.getElementById('category' + i).value = `${tasks[i]['category']}`
     document.getElementById('description' + i).value = `${tasks[i]['description']}`
@@ -43,7 +41,7 @@ function openTask(i){
     document.getElementById('user_1').classList.add('selected-user');
     currentUser = allUsers[0]['name'];
 
-   
+
 }
 
 function selectUser(user) {
@@ -59,11 +57,11 @@ function clearUsers() {
 }
 
 
-function generateTask(i){
+function generateTask(i) {
     return /*html*/ `
     <div id="content">
     <div class="add-task">
-        <form class="form">
+        <form class="form" action="return: false">
             <div class="form-left">
                 <p>TITLE</p>
                 <input class="inputs" type="text" id="title${i}" required>
@@ -111,22 +109,22 @@ function generateTask(i){
     <div id="test-tasks-container">
     </div>
 </div>
-    `;}
+    `;
+}
 
-function cancelTask(){
+function cancelTask() {
     document.getElementById('change-task').classList.add('d-none')
 }
 
 
-function pushToBoard(i){
-    if(tasks[i].place == 'backlog'){
-        tasks[i].place = 'open';
-    }
+function pushToBoard(i) {
+    tasks[i]['place'] = 'open';
+
     updateBacklog();
     backlog();
 }
 
-async function updateBacklog(){
+async function updateBacklog() {
     let tasksAsJSON = JSON.stringify(tasks);
     await backend.setItem('tasksAsJSON', tasksAsJSON);
 }
