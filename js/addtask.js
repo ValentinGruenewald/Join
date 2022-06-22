@@ -1,39 +1,3 @@
-tasks = []
-
-allUsers = [{
-    'first-name': 'Marco',
-    'last-name': 'Scherf',
-    'selected': true
-},
-{
-    'first-name': 'Valentin',
-    'last-name': 'Olberding',
-    'selected': false
-},
-{
-    'first-name': 'Tom',
-    'last-name': 'Petri',
-    'selected': false
-},
-{
-    'first-name': 'Valentin',
-    'last-name': 'Grünewald',
-    'selected': false
-}
-]
-
-users = [{
-    'username': 'valentingruenewald',
-    'password': 'test123'
-},
-{
-    'username': 'valentingruenewald2',
-    'password': 'test2'
-}
-]
-
-currentUser = 'Marco';
-
 async function addTask() {
     let newTask = {
         'title': `${document.getElementById('title').value}`,
@@ -76,6 +40,7 @@ function renderUsers() {
 
     document.getElementById('users').innerHTML = '';
     for (let i = 0; i < allUsers.length; i++) {
+
         document.getElementById('users').innerHTML += `
         <div class="user-box">
         <img id="delete-user_${i}" class="delete-user" onclick="openDeleteUserWindow(${i})" src="img/close.png">
@@ -105,7 +70,7 @@ function renderUsers() {
 function openAddUser() {
     closeAllDeleteUserWindows();
     document.getElementById('open-add-user').classList.add('d-none');
-    setTimeout(function () {
+    setTimeout(function() {
         document.getElementById('open-add-user').classList.remove('d-none');
     }, 0);
     document.getElementById('add-user').classList.remove('d-none');

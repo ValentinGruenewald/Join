@@ -1,0 +1,125 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    background-color: #1E3190;
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: #7787da;
+}
+
+a:hover {
+    color: #1E3190;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 350px;
+    width: 250px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 7px;
+    color: #1E3190;
+    font-size: 18px;
+}
+
+.logo {
+    width: 60px;
+    height: 71px;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 25px 0 5px 0;
+}
+
+.input {
+    margin: 2px 0;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.password {
+    display: flex;
+    position: relative;
+}
+
+#password {
+    padding-right: 10px;
+}
+
+.eye-password {
+    position: absolute;
+    right: 5px;
+    top: 9px;
+    cursor: pointer;
+}
+
+button {
+    background-color: rgb(30, 49, 144);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    width: 115px;
+    height: 35px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(43, 68, 192);
+}
+
+.register-link,
+.guest {
+    font-size: 14px;
+}
+
+.register-link {
+    margin-bottom: 20px;
+}
+
+.guest {
+    margin: 20px 0;
+}
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 220px;
+    width: 250px;
+}
+
+#reg-password {
+    margin-bottom: 20px;
+}

@@ -8,21 +8,12 @@
     <title>Add Task</title>
     <link rel="stylesheet" href="css/addtask.css">
     <link rel="stylesheet" href="css/nav.css">
-    <script src="js/nav.js"></script>
-    <script src="js/addtask.js"></script>
     <script src="js/mini_backend.js"></script>
-    <script>
-        setURL('https://valentin-gruenewald.developerakademie.net/smallest_backend_ever');
+    <script src="js/data.js"></script>
+    <script src="js/addtask.js"></script>
+    <script src="js/nav.js"></script>
 
-        async function init() {
-            await downloadFromServer();
-            let tasksAsJSON = await backend.getItem('tasksAsJSON');
-            tasks = JSON.parse(tasksAsJSON);
-            let allUsersAsJSON = await backend.getItem('allUsersAsJSON');
-            allUsers = JSON.parse(allUsersAsJSON);
-            renderUsers();
-        }
-    </script>
+
 </head>
 
 
@@ -53,7 +44,7 @@
         </div>
         <div class="nav-footer">
             <div class="user">
-                <span>MS</span>
+                <span id="active-user">GG</span>
             </div>
         </div>
     </nav>

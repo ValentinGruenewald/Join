@@ -5,26 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/mini_backend.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/login.js"></script>
+    <title>Join - Login</title>
 </head>
 
-<body>
-    <div>
-        <h1>Test</h1>
+<body onload="init()">
+    <div class="login">
+        <img class="logo" src="img/logo.png" alt="">
+        <div class="input-field">
+            <input type="text" class="input" name="" id="username" placeholder="Username...">
+            <div class="password">
+                <input type="password" class="input" name="" id="password" placeholder="Password...">
+                <span class="eye-password" onclick=" showLoginPassword()"><img src="img/eye.png" id="eye"></span>
+            </div>
+        </div>
+        <span class="register-link"><a href="#" onclick="showRegister()">Create account</a></span>
+        <button onclick="elementUsers()">Log in</button>
+        <span class="guest"><a onclick="clearLocalStorage()">Log in as a Guest</a></span>
     </div>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod velit omnis magni minima odit ullam ipsum, iusto dicta corrupti consectetur necessitatibus porro, adipisci ipsa, perferendis quaerat ut nisi labore quo.
-    </p>
+    <div class="register-container d-none" id="reg-container">
+        <div class="register">
+            <input type="text" class="input" id="reg-firstname" placeholder="Firstname...">
+            <input type="text" class="input" id="reg-lastname" placeholder="Lastname...">
 
-    =======
-    <h1>Test</h1>
-    >>>>>>> 0c3fce5c698f9aeb807ed153beabbc77e3cc206d
-    <div>
-        <h3></h3>
-    </div>
-
-    <div>
-        <h4>TeSt</h4>
+            <div class="password">
+                <input type="password" class="input" id="reg-password" placeholder="Password...">
+                <span class="eye-password" onclick="showRegPassword()"><img src="img/eye.png" id="reg-eye"></span>
+            </div>
+            <button onclick="regUser()">Register</button>
+        </div>
     </div>
 </body>
 

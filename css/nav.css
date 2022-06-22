@@ -82,10 +82,11 @@ li {
     padding-bottom: 20px;
 }
 
-.user span {
+#active-user {
     border: 3px solid white;
     border-radius: 100%;
     padding: 10px;
+    text-transform: uppercase;
 }
 
 @media (max-width: 1000px) {

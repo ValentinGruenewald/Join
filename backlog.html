@@ -8,25 +8,20 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/backlog.css">
     <link rel="stylesheet" href="css/nav.css">
+    <script src="js/mini_backend.js"></script>
     <script src="js/backlog.js"></script>
     <script src="js/add-taskV.js"></script>
+    <script src="js/data.js"></script>
     <link rel="stylesheet" href="css/addtask.css">
-    <script src="js/mini_backend.js"></script>
-    <script>
-        setURL('https://valentin-gruenewald.developerakademie.net/smallest_backend_ever');
 
-        async function init() {
-            await downloadFromServer();
-            backlog();
-        }
-    </script>
+
 </head>
 
 <body onload="init()">
 
     <div id="change-task" class="change-task-container d-none ">
-       
-        </div>
+
+    </div>
 
     <div class="main-div">
         <nav class="flex-align-center">
@@ -44,35 +39,35 @@
                     <Span>MS</Span>
                 </div>
             </div>
-    
+
         </nav>
 
-<div class="backlog-content">
-    <div class="headline-backlog-container">
-        <h1>Backlog</h2>
-       
-    </div>
+        <div class="backlog-content">
+            <div class="headline-backlog-container">
+                <h1>Backlog</h2>
+
+            </div>
 
 
-    <div class="backlog-head-container">
-            <div class="backlog-head">
-                <div>
-                    <h5>ASSIGNED TO </h5>
+            <div class="backlog-head-container">
+                <div class="backlog-head">
+                    <div>
+                        <h5>ASSIGNED TO </h5>
+                    </div>
+                    <div>
+                        <h5>CATEGORY</h5>
+                    </div>
+                    <div>
+                        <h5>DETAILS</h5>
+                    </div>
                 </div>
-                <div>
-                    <h5>CATEGORY</h5>
-                </div>
-                <div>
-                    <h5>DETAILS</h5>
+
+                <div class="backlogs-container" id="backlogs">
+
                 </div>
             </div>
-      
-        <div class="backlogs-container" id="backlogs">
-
         </div>
     </div>
-    </div>
-</div>
 </body>
 
 </html>

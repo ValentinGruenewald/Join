@@ -15,3 +15,14 @@ function closeMenu() {
     getID('content').classList.remove('d-none');
     getID('mobile').setAttribute('onclick', 'openMenu()');
 }
+let user;
+
+function showActiveUser() {
+    if (localStorage.getItem('newUser') == null) {
+
+    } else {
+        user = localStorage.getItem('newUser');
+        user = JSON.parse(user);
+        getID('active-user').innerHTML = `${user['first-name'].charAt(0)}${user['last-name'].charAt(0)}`;
+    }
+}
