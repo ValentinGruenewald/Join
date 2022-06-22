@@ -9,7 +9,7 @@ async function backlog(){
     test.innerHTML = ``;
 
      for(let i = 0; i < tasks.length; i++){
-
+        if(tasks[i].place == 'backlog'){
         test.innerHTML += `<div     onclick="openTask(${i})" class="backlog  ${tasks[i]['assigned-to']}">
                                
                                 <div class="profile">
@@ -28,7 +28,7 @@ async function backlog(){
                                 </div>
                                
                             </div>`;
-
+        }
     }
 }
 
@@ -117,13 +117,10 @@ function cancelTask(){
     document.getElementById('change-task').classList.add('d-none')
 }
 
-
 function pushToBoard(i){
-    if(tasks[i].place == 'backlog'){
-        tasks[i].place = 'open';
-    }
-    updateBacklog();
-    backlog();
+        tasks[i].place = 'open'; 
+        updateBacklog();
+        backlog();
 }
 
 async function updateBacklog(){
