@@ -1,26 +1,5 @@
 
 
-allUsers = [
-    {
-        'name': 'Marco Scherf',
-        'selected': true
-    },
-    {
-        'name': 'Valentin Olberding',
-        'selected': false
-    },
-    {
-        'name': 'Tom Petri',
-        'selected': false
-    },
-    {
-        'name': 'Valentin Grünewald',
-        'selected': false
-    }
-]
-
-
-
 async function backlog(){
 
     let tasksAsJSON = await backend.getItem('tasksAsJSON');
@@ -55,8 +34,7 @@ async function backlog(){
 
 function openTask(i){
     document.getElementById('change-task').classList.remove('d-none')
-    document.getElementById('change-task').innerHTML = generateTask(i);
-    
+    document.getElementById('change-task').innerHTML = generateTask(i); 
     document.getElementById('title' + i).value = `${tasks[i]['title']}`
     document.getElementById('category' + i).value = `${tasks[i]['category']}`
     document.getElementById('description' + i).value = `${tasks[i]['description']}`
@@ -140,11 +118,11 @@ function cancelTask(){
 }
 
 
-async function pushToBoard(i){
+function pushToBoard(i){
     if(tasks[i].place == 'backlog'){
         tasks[i].place = 'open';
     }
-   await updateBacklog();
+    updateBacklog();
     backlog();
 }
 
