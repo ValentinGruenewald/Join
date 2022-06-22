@@ -1,3 +1,5 @@
+
+
 allUsers = [
     {
         'name': 'Marco Scherf',
@@ -49,7 +51,6 @@ async function backlog(){
                             </div>`;
 
     }
-    personalColor();
 }
 
 function openTask(i){
@@ -84,7 +85,7 @@ function generateTask(i){
     return /*html*/ `
     <div id="content">
     <div class="add-task">
-        <form class="form" action="return: false" onsubmit="addTask()">
+        <form class="form">
             <div class="form-left">
                 <p>TITLE</p>
                 <input class="inputs" type="text" id="title${i}" required>
@@ -124,7 +125,7 @@ function generateTask(i){
                 </div>
                 <div class="buttons">
                 <button onclick="cancelTask()" class="cancel-button">CANCEL</button>
-                <button class="addToBoard-button">ADD TO BOARD</button>
+                <button onclick="pushToBoard(${i})" class="addToBoard-button">ADD TO BOARD</button>
                 </div>
             </div>
         </form>
@@ -136,4 +137,18 @@ function generateTask(i){
 
 function cancelTask(){
     document.getElementById('change-task').classList.add('d-none')
+}
+
+
+async function pushToBoard(i){
+    if(tasks[i].place == 'backlog'){
+        tasks[i].place = 'open';
+    }
+   await updateBacklog();
+    backlog();
+}
+
+async function updateBacklog(){
+    let tasksAsJSON = JSON.stringify(tasks);
+    await backend.setItem('tasksAsJSON', tasksAsJSON);
 }
