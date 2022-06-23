@@ -1,38 +1,38 @@
-.backlog-head-container{
+.backlog-head-container {
     width: 100%;
     display: flex;
     align-items: flex-end;
     flex-direction: column;
     margin-left: -100px;
 }
-.headline-backlog-container{
+
+.headline-backlog-container {
     text-align: center;
     background-color: #F4F3FB;
 }
 
-.backlog-head{
+.backlog-head {
     display: flex;
     width: 80%;
     align-items: center;
     justify-content: space-between;
 }
 
-.backlog-head h5{
+.backlog-head h5 {
     color: rgb(0, 0, 164);
     width: 90px;
 }
 
-.backlogs-container{
+.backlogs-container {
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
-    
 }
 
-.backlog{
-    background-color:#F4F3FB;
+.backlog {
+    background-color: #F4F3FB;
     display: flex;
     height: 80px;
     cursor: pointer;
@@ -45,80 +45,72 @@
     width: 80%;
 }
 
-
-
-
-.profile{
+.profile {
     min-width: 100px;
     height: 90px;
     display: flex;
     margin-left: 15px;
     text-align: start;
     align-items: center;
-    
 }
 
-.category{
-    margin:0px;
+.category {
+    margin: 0px;
     min-width: 80px;
     text-align: start;
 }
 
-.description{
+.description {
     margin-right: 15px;
     min-width: 100px;
-   
 }
 
-
-
-
-.Marco{
+.Marco {
     border-left: 5px solid rgb(100, 100, 253);
-
 }
 
-.Marco:hover{
+.Marco:hover {
     transition: 70ms ease-in-out;
     border: 5px solid rgb(100, 100, 253);
 }
 
-.Tom{
+.Tom {
     border-left: 5px solid rgb(31, 133, 0);
 }
 
-.Tom:hover{
+.Tom:hover {
     transition: 70ms ease-in-out;
-    border: 5px solid rgb(31, 133, 0);;
+    border: 5px solid rgb(31, 133, 0);
+    ;
 }
 
-.Me{
+.Me {
     border-left: 5px solid rgba(149, 0, 105, 0.883);
 }
 
-.Me:hover{
+.Me:hover {
     transition: 70ms ease-in-out;
     border: 5px solid rgba(149, 0, 105, 0.883);
 }
 
-.Valentin{
+.Valentin {
     transition: 70ms ease-in-out;
     border-left: 5px solid rgb(204, 105, 12);
 }
 
-.Valentin:hover{
+.Valentin:hover {
     border: 5px solid rgb(204, 105, 12);
 }
 
-.main-div{
+.main-div {
     display: flex;
     width: 100%;
 }
 
-.backlog-content{
-   display: flex;
-   width: 100%;
-   flex-direction: column;
+.backlog-content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
 }
 
 .add-task {
@@ -126,7 +118,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .form {
@@ -134,8 +125,7 @@
     width: 100% !important;
 }
 
-
-.change-task-container{
+.change-task-container {
     position: absolute;
     width: 100%;
     height: 100vh;
@@ -146,35 +136,31 @@
     justify-content: center;
 }
 
-.cancel-button{
+.cancel-button {
     cursor: pointer;
     margin-right: 5px;
 }
 
-.cancel-button:hover{
+.cancel-button:hover {
     margin-right: 5px;
     background-color: navy;
 }
 
-.addToBoard-button{
+.addToBoard-button {
     cursor: pointer;
     margin-left: 5px;
 }
 
-.addToBoard-button:hover{
+.addToBoard-button:hover {
     background-color: navy;
     margin-left: 5px;
-
 }
 
-#content{
-    width: 60%;
-}
-.buttons{
+.buttons {
     display: flex;
 }
 
-.users{
+.users {
     display: flex;
     flex-wrap: wrap;
 }

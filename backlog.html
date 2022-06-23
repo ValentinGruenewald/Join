@@ -12,19 +12,25 @@
     <script src="js/backlog.js"></script>
     <script src="js/add-taskV.js"></script>
     <script src="js/data.js"></script>
+    <script src="js/nav.js"></script>
+
+
     <link rel="stylesheet" href="css/addtask.css">
 
 
 </head>
 
 <body onload="init()">
-
-    <div id="change-task" class="change-task-container d-none ">
-
-    </div>
-
     <div class="main-div">
-        <nav class="flex-align-center">
+        <div class="d-none-mobile" id="mobile" onclick="openMenu()">
+            <img src="img/menu.png" id="mobile-img">
+        </div>
+        <div id="change-task" class="change-task-container d-none ">
+
+        </div>
+
+
+        <nav id="nav" class="flex-align-center">
             <div class="head flex-align-center">
                 <img class="logo" src="img/logo.png" alt="Logo">
                 <ul>
@@ -42,7 +48,7 @@
 
         </nav>
 
-        <div class="backlog-content">
+        <div class="backlog-content" id="content">
             <div class="headline-backlog-container">
                 <h1>Backlog</h2>
 
