@@ -8,6 +8,7 @@
     <title>Add Task</title>
     <link rel="stylesheet" href="css/addtask.css">
     <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/fonts.css">
     <script src="js/mini_backend.js"></script>
     <script src="js/data.js"></script>
     <script src="js/addtask.js"></script>
@@ -29,24 +30,23 @@
             <button class="cancel-button" onclick="closeAddUser()">Cancel</button>
         </div>
     </div>
-    <div class="d-none" id="mobile" onclick="openMenu()">
+    <div class="d-none-mobile" id="mobile" onclick="openMenu()">
         <img src="img/menu.png" id="mobile-img">
     </div>
     <nav id="nav">
         <div class="head flex-align-center">
-            <img class="logo" src="img/logo.png" alt="Logo">
+            <a href="board.html"><img class="logo" src="img/logo.png" alt="Logo"></a>
             <ul>
-                <li class="nav-link"><a href="board.html">Board</a></li>
-                <li class="nav-link"><a href="backlog.html">Backlog</a></li>
-                <li class="active"><a href="addtask.html">Add Task</a></li>
-                <li class="nav-link"><a href="help.html">Help</a></li>
-                <li class="nav-link"><a href="impressum.html">Impressum</a></li>
+                <li class="nav-link"><a href="board.html" class="link">Board</a></li>
+                <li class="nav-link"><a href="backlog.html" class="link">Backlog</a></li>
+                <li class="active"><a href="addtask.html" class="link">Add Task</a></li>
+                <li class="nav-link"><a href="help.html" class="link">Help</a></li>
+                <li class="nav-link"><a href="impressum.html" class="link">Impressum</a></li>
             </ul>
         </div>
         <div class="nav-footer">
-            <div class="user">
-                <span id="active-user">GG</span>
-            </div>
+            <span id="active-user">GG</span>
+            <a href="index.html" class="logout">Log out</a>
         </div>
     </nav>
     <main id="content">

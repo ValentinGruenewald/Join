@@ -5,47 +5,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Backlog</title>
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/backlog.css">
     <link rel="stylesheet" href="css/nav.css">
-    <script src="js/mini_backend.js"></script>
-    <script src="js/backlog.js"></script>
-    <script src="js/add-taskV.js"></script>
-    <script src="js/data.js"></script>
     <link rel="stylesheet" href="css/addtask.css">
-
-
+    <script src="js/mini_backend.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/backlog.js"></script>
+    <script src="js/nav.js"></script>
 </head>
 
 <body onload="init()">
-
-    <div id="change-task" class="change-task-container d-none ">
-
-    </div>
-
     <div class="main-div">
-        <nav class="flex-align-center">
+        <div class="d-none-mobile" id="mobile" onclick="openMenu()">
+            <img src="img/menu.png" id="mobile-img">
+        </div>
+        <div id="change-task" class="change-task-container d-none ">
+
+        </div>
+
+
+        <nav id="nav" class="flex-align-center">
             <div class="head flex-align-center">
-                <img class="logo" src="img/logo.png" alt="Logo">
+                <a href="board.html"><img class="logo" src="img/logo.png" alt="Logo"></a>
                 <ul>
-                    <li class="nav-link"><a href="../board.html">Board</a></li>
-                    <li class="active"><a href="backlog.html">Backlog</a></li>
-                    <li class="nav-link"><a href="addtask.html">Add Task</a></li>
-                    <li class="nav-link"><a href="../help.html">Help</a></li>
+                    <li class="nav-link"><a href="../board.html" class="link">Board</a></li>
+                    <li class="active"><a href="backlog.html" class="link">Backlog</a></li>
+                    <li class="nav-link"><a href="addtask.html" class="link">Add Task</a></li>
+                    <li class="nav-link"><a href="help.html" class="link">Help</a></li>
+                    <li class="nav-link"><a href="impressum.html" class="link">Impressum</a></li>
                 </ul>
             </div>
             <div class="nav-footer">
-                <div class="user">
-                    <Span id="active-user">MS</Span>
-                </div>
+                <span id="active-user">GG</span>
+                <a href="index.html" class="logout">Log out</a>
             </div>
 
         </nav>
 
+<<<<<<< HEAD
         <div class="backlog-content">
             <div id="backlog-descripton" class="headline-backlog-container">
                
 
+=======
+        <div class="backlog-content" id="content">
+            <div class="headline-backlog-container">
+                <h1>Backlog</h2>
+>>>>>>> 5ef59aa25e261bd6ec87b9be1bed274305985957
 
             </div>
 
