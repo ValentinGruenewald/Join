@@ -5,19 +5,29 @@
 .backlog-head-container {
     width: 100%;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     flex-direction: column;
-    margin-left: -100px;
+}
+.headline-backlog-container{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;  
+    margin-bottom: 50px;
 }
 
+.headline-backlog{
+    width: 80%;
+    display: flex;
+    flex-direction: column;}
+
 .headline-backlog-container {
-    text-align: center;
-    background-color: #F4F3FB;
+    
 }
 
 .backlog-head {
     display: flex;
-    width: 80%;
+    width: 70%;
     align-items: center;
     justify-content: space-between;
 }
@@ -31,7 +41,7 @@
     display: flex;
     width: 100%;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
 }
 

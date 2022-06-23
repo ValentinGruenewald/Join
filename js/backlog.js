@@ -1,8 +1,9 @@
-async function backlog() {
+function backlog() {
     let test = document.getElementById('backlogs');
     test.innerHTML = ``;
 
     for (let i = 0; i < tasks.length; i++) {
+        backlogExplaining(i);
         if (tasks[i].place == 'backlog') {
             test.innerHTML += `<div     onclick="openTask(${i})" class="backlog  ${tasks[i]['assigned-to']}">
                                
@@ -22,6 +23,16 @@ async function backlog() {
                                
                             </div>`;
         }
+    }
+}
+
+function backlogExplaining(i){
+    let backlogInfo = document.getElementById('backlog-descripton');
+    if(tasks[i].place == 'backlog'){
+        backlogInfo.innerHTML = `<div class="headline-backlog"> <h1>Backlog</h2>
+                                        The following tasks need to be planned into a sprint.</div>`;
+    } else{
+        backlogInfo.innerHTML = ` <h1>Backlog</h2><div>You have to create a task first</div>`;
     }
 }
 
