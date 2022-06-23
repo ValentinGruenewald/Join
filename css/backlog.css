@@ -1,3 +1,7 @@
+* {
+    font-family: 'PT Sans';
+}
+
 .backlog-head-container {
     width: 100%;
     display: flex;
@@ -109,7 +113,7 @@
 
 .backlog-content {
     display: flex;
-    width: 100%;
+    width: calc(100% - 200px);
     flex-direction: column;
 }
 

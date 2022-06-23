@@ -1,14 +1,10 @@
 async function backlog() {
-
-    // let tasksAsJSON = await backend.getItem('tasksAsJSON');
-    // tasks = JSON.parse(tasksAsJSON);
-
     let test = document.getElementById('backlogs');
     test.innerHTML = ``;
 
-     for(let i = 0; i < tasks.length; i++){
-        if(tasks[i].place == 'backlog'){
-        test.innerHTML += `<div     onclick="openTask(${i})" class="backlog  ${tasks[i]['assigned-to']}">
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].place == 'backlog') {
+            test.innerHTML += `<div     onclick="openTask(${i})" class="backlog  ${tasks[i]['assigned-to']}">
                                
                                 <div class="profile">
                                 <div class="profile-picture">
@@ -116,10 +112,10 @@ function cancelTask() {
     document.getElementById('change-task').classList.add('d-none')
 }
 
-function pushToBoard(i){
-        tasks[i].place = 'open'; 
-        updateBacklog();
-        backlog();
+function pushToBoard(i) {
+    tasks[i].place = 'open';
+    updateBacklog();
+    backlog();
 }
 
 async function updateBacklog() {
