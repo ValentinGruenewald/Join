@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-function backlog() {
-
-    // let tasksAsJSON = await backend.getItem('tasksAsJSON');
-    // tasks = JSON.parse(tasksAsJSON);
-
-   
-
-    let test = document.getElementById('backlogs');
-    test.innerHTML = ``;
-   
-     for(let i = 0; i < tasks.length; i++){
-        backlogExplaining(i);
-        if(tasks[i].place == 'backlog'){
-        test.innerHTML += `<div     onclick="openTask(${i})" class="backlog  ${tasks[i]['assigned-to']}">
-=======
 async function backlog() {
     let test = document.getElementById('backlogs');
     test.innerHTML = ``;
@@ -21,11 +5,9 @@ async function backlog() {
     for (let i = 0; i < tasks.length; i++) {
         if (tasks[i].place == 'backlog') {
             test.innerHTML += `<div     onclick="openTask(${i})" class="backlog  ${tasks[i]['assigned-to']}">
->>>>>>> 5ef59aa25e261bd6ec87b9be1bed274305985957
                                
                                 <div class="profile">
                                 <div class="profile-picture">
-
                                 </div>
                                 <div>
                                     ${tasks[i]['assigned-to']}
@@ -40,17 +22,6 @@ async function backlog() {
                                
                             </div>`;
         }
-        
-    }
-}
-
-function backlogExplaining(i){
-    let backlogInfo = document.getElementById('backlog-descripton');
-    if(tasks[i].place == 'backlog'){
-        backlogInfo.innerHTML = `<div class="headline-backlog"> <h1>Backlog</h2>
-                                        The following tasks need to be planned into a sprint.</div>`;
-    } else{
-        backlogInfo.innerHTML = ` <h1>Backlog</h2><div>You have to create a task first</div>`;
     }
 }
 
@@ -94,7 +65,6 @@ function generateTask(i) {
                 <p>DESCRIPTION</p>
                 <input class="inputs" type="text" id="description${i}" required>
             </div>
-
             <div class="form-right">
                 <p>DUE DATE</p>
                 <input class="inputs" type="date" id="due-date${i}" required>
@@ -140,21 +110,13 @@ function cancelTask() {
     document.getElementById('change-task').classList.add('d-none')
 }
 
-<<<<<<< HEAD
-function pushToBoard(i){
-        tasks[i].place = 'open'; 
-        updateBacklog();
-        backlog();
-=======
 function pushToBoard(i) {
     tasks[i].place = 'open';
     updateBacklog();
     backlog();
->>>>>>> 5ef59aa25e261bd6ec87b9be1bed274305985957
 }
 
 async function updateBacklog() {
     let tasksAsJSON = JSON.stringify(tasks);
     await backend.setItem('tasksAsJSON', tasksAsJSON);
-    document.getElementById('change-task').classList.add('d-none');
 }
