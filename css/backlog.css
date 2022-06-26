@@ -21,9 +21,7 @@
     display: flex;
     flex-direction: column;}
 
-.headline-backlog-container {
-    
-}
+
 
 .backlog-head {
     display: flex;
@@ -57,6 +55,13 @@
     justify-content: space-between;
     text-align: start;
     width: 80%;
+    border-left: 5px solid rgb(111, 138, 115);
+}
+
+.backlog:hover {
+     transition: 70ms ease-in-out;
+     border: 5px solid rgb(111, 138, 115);
+
 }
 
 .profile {
@@ -123,7 +128,7 @@
 
 .backlog-content {
     display: flex;
-    width: calc(100% - 200px);
+    width: 100%;
     flex-direction: column;
 }
 
@@ -177,4 +182,11 @@
 .users {
     display: flex;
     flex-wrap: wrap;
+}
+
+@media (max-width: 800px) {
+  .backlog-content {
+        width: 100%;
+        
+    }
 }

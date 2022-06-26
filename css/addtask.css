@@ -282,6 +282,10 @@ select {
     }
 }
 
+.d-none-mobile {
+    display: none;
+}
+
 @media (max-width: 450px) {
     #add-user {
         width: 60%;

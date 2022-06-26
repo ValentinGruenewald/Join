@@ -17,6 +17,17 @@
 </head>
 
 <body onload="init()">
+    <div id="add-user" class="d-none">
+        <h2>New User</h2>
+        <div>
+            <input id="new-user-first-name" type="text" placeholder="First name">
+            <input id="new-user-last-name" type="text" placeholder="Last name">
+        </div>
+        <div>
+            <button onclick="addUser()">Add User</button>
+            <button class="cancel-button" onclick="closeAddUser()">Cancel</button>
+        </div>
+    </div>
     <div class="main-div">
         <div class="d-none-mobile" id="mobile" onclick="openMenu()">
             <img src="img/menu.png" id="mobile-img">
