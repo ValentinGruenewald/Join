@@ -66,7 +66,7 @@ function clearUsers() {
 
 function generateTask(i) {
     return /*html*/ `
-    <div id="content">
+    <div class="edit-task" id="content">
     <div class="add-task">
         <form class="form" action="return: false">
             <div class="form-left">
@@ -126,6 +126,7 @@ function pushToBoard(i) {
     tasks[i].place = 'open';
     updateBacklog();
     backlog();
+    document.getElementById('change-task').classList.add('d-none');
 }
 
 async function updateBacklog() {
