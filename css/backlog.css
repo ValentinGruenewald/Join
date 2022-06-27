@@ -89,7 +89,7 @@
 }
 
 .Marco:hover {
-    transition: 70ms ease-in-out;
+    transition: 75ms ease-in-out;
     border: 5px solid rgb(100, 100, 253);
 }
 
@@ -98,7 +98,7 @@
 }
 
 .Tom:hover {
-    transition: 70ms ease-in-out;
+    transition: 75ms ease-in-out;
     border: 5px solid rgb(31, 133, 0);
     ;
 }
@@ -113,7 +113,7 @@
 }
 
 .Valentin {
-    transition: 70ms ease-in-out;
+    transition: 75ms ease-in-out;
     border-left: 5px solid rgb(204, 105, 12);
 }
 
@@ -189,4 +189,12 @@
         width: 100%;
         
     }
+
+    .buttons {
+        flex-direction: column;}
+
+    .edit-task{
+        height: 100%;
+        width: 100%;
+    }    
 }
