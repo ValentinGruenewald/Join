@@ -2,11 +2,12 @@ body {
     font-family: PT sans-serif;
 }
 
-#content{
+
+
+.help-explaning{
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 h1 {
     font-size: 25px !important;
