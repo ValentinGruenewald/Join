@@ -6,6 +6,13 @@ body {
     font-family: 'PT Sans';
 }
 
+
+.mainContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
 main {
     width: 80%;
     height: 100%;

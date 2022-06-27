@@ -5,12 +5,6 @@ body {
 }
 
 
-.mainContainer {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-
 .mainContentCategories {
     background-color: rgb(5 5 149);
     width: 200px;
