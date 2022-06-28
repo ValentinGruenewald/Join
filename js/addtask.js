@@ -14,6 +14,7 @@ async function addTask() {
     clearForm();
 }
 
+
 function clearForm() {
     document.getElementById('title').value = '';
     document.getElementById('category').value = 'Management';
@@ -23,11 +24,13 @@ function clearForm() {
     renderUsers();
 }
 
+
 function selectUser(user) {
     clearUsers()
     document.getElementById(`user_${user}`).classList.add('selected-user');
     currentUser = allUsers[user]['first-name'] + ' ' + allUsers[user]['last-name'];
 }
+
 
 function clearUsers() {
     for (let i = 0; i < allUsers.length; i++) {
@@ -35,58 +38,19 @@ function clearUsers() {
     }
 }
 
+
 function renderUsers() {
     if (allUsers == '') {
-        allUsers = [{
-            'first-name': 'Marco',
-            'last-name': 'Scherf',
-            'selected': true
-        },
-        {
-            'first-name': 'Valentin',
-            'last-name': 'Olberding',
-            'selected': false
-        },
-        {
-            'first-name': 'Tom',
-            'last-name': 'Petri',
-            'selected': false
-        },
-        {
-            'first-name': 'Valentin',
-            'last-name': 'Grünewald',
-            'selected': false
-        }];
+        resetAllUsers();
     }
-
     document.getElementById('users').innerHTML = '';
     for (let i = 0; i < allUsers.length; i++) {
-
-        document.getElementById('users').innerHTML += `
-        <div class="user-box">
-        <img id="delete-user_${i}" class="delete-user" onclick="openDeleteUserWindow(${i})" src="img/close.png">
-        <div id="delete-user-window_${i}" class="delete-user-window d-none">
-            Are you sure you want to remove the user ${allUsers[i]['first-name']} ${allUsers[i]['last-name']}?
-            <div>
-                <button type="button" onclick="deleteUser(${i})">Remove</button>
-                <button class="cancel-button" type="button" onclick="closeAllDeleteUserWindows()">Cancel</button>
-            </div>
-        </div>
-        <div id="user_${i}" class="user-img" onclick="selectUser(${i})">${allUsers[i]['first-name'].charAt(0) + allUsers[i]['last-name'].charAt(0)}</div>
-        </div>`;
+        renderOneUser(i);
     }
-    document.getElementById('users').innerHTML += `
-        <div class="user-box">
-            <div class="user-img" id="open-add-user" onclick="openAddUser()">
-                <img src="img/icon plus.png">
-            </div>
-        </div>
-    `;
-
+    renderAddUserButton();
     document.getElementById('user_0').classList.add('selected-user');
-
-
 }
+
 
 function openAddUser() {
     closeAllDeleteUserWindows();
@@ -97,10 +61,12 @@ function openAddUser() {
     document.getElementById('add-user').classList.remove('d-none');
 }
 
+
 function closeAddUser() {
     document.getElementById('add-user').classList.add('d-none');
     clearAddUser();
 }
+
 
 async function addUser() {
     if (checkIfNewUserIsValid() == true) {
@@ -116,6 +82,7 @@ async function addUser() {
     }
 }
 
+
 function newUserBlueprint() {
     return {
         'first-name': document.getElementById('new-user-first-name').value,
@@ -123,6 +90,7 @@ function newUserBlueprint() {
         'selected': false
     };
 }
+
 
 function checkIfNewUserIsValid() {
     if (document.getElementById('new-user-first-name').value == '') {
@@ -136,10 +104,12 @@ function checkIfNewUserIsValid() {
     }
 }
 
+
 function clearAddUser() {
     document.getElementById('new-user-first-name').value = '';
     document.getElementById('new-user-last-name').value = '';
 }
+
 
 function openDeleteUserWindow(user) {
     closeAddUser();
@@ -147,11 +117,13 @@ function openDeleteUserWindow(user) {
     document.getElementById(`delete-user-window_${user}`).classList.remove('d-none');
 }
 
+
 function closeAllDeleteUserWindows() {
     for (let i = 0; i < allUsers.length; i++) {
         document.getElementById(`delete-user-window_${i}`).classList.add('d-none');
     }
 }
+
 
 async function deleteUser(user) {
     allUsers.splice(user, 1);
@@ -159,6 +131,7 @@ async function deleteUser(user) {
     await backend.setItem('allUsersAsJSON', allUsersAsJSON);
     renderUsers();
 }
+
 
 async function resetEverything() {
     let tasks = [];
@@ -189,4 +162,56 @@ async function resetEverything() {
     ];
     let allUsersAsJSON = JSON.stringify(allUsers);
     await backend.setItem('allUsersAsJSON', allUsersAsJSON);
+}
+
+
+function renderOneUser(i) {
+    document.getElementById('users').innerHTML += `
+        <div class="user-box">
+        <img id="delete-user_${i}" class="delete-user" onclick="openDeleteUserWindow(${i})" src="img/close.png">
+        <div id="delete-user-window_${i}" class="delete-user-window d-none">
+            Are you sure you want to remove the user ${allUsers[i]['first-name']} ${allUsers[i]['last-name']}?
+            <div>
+                <button type="button" onclick="deleteUser(${i})">Remove</button>
+                <button class="cancel-button" type="button" onclick="closeAllDeleteUserWindows()">Cancel</button>
+            </div>
+        </div>
+        <div id="user_${i}" class="user-img" onclick="selectUser(${i})">${allUsers[i]['first-name'].charAt(0) + allUsers[i]['last-name'].charAt(0)}</div>
+        </div>
+        `;
+}
+
+
+function renderAddUserButton() {
+    document.getElementById('users').innerHTML += `
+    <div class="user-box">
+        <div class="user-img" id="open-add-user" onclick="openAddUser()">
+            <img src="img/icon plus.png">
+        </div>
+    </div>
+    `;
+}
+
+
+function resetAllUsers() {
+    allUsers = [{
+        'first-name': 'Marco',
+        'last-name': 'Scherf',
+        'selected': true
+    },
+    {
+        'first-name': 'Valentin',
+        'last-name': 'Olberding',
+        'selected': false
+    },
+    {
+        'first-name': 'Tom',
+        'last-name': 'Petri',
+        'selected': false
+    },
+    {
+        'first-name': 'Valentin',
+        'last-name': 'Grünewald',
+        'selected': false
+    }];
 }
