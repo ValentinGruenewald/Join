@@ -8,20 +8,20 @@
     align-items: center;
     flex-direction: column;
 }
-.headline-backlog-container{
+
+.headline-backlog-container {
     width: 80%;
     display: flex;
     align-items: center;
-    flex-direction: column;  
+    flex-direction: column;
     margin-bottom: 50px;
 }
 
-.headline-backlog{
+.headline-backlog {
     width: 80%;
     display: flex;
-    flex-direction: column;}
-
-
+    flex-direction: column;
+}
 
 .backlog-head {
     display: flex;
@@ -56,16 +56,16 @@
     text-align: start;
     width: 80%;
     border-left: 5px solid rgb(111, 138, 115);
+    border: 5px solid transparent;
 }
 
 .backlog:hover {
-     transition: 70ms ease-in-out;
-     border: 5px solid rgb(111, 138, 115);
-
+    transition: 70ms ease-in-out;
+    border: 5px solid rgb(111, 138, 115);
 }
 
 .profile {
-    min-width: 100px;
+    width: 33.333333333px;
     height: 90px;
     display: flex;
     margin-left: 15px;
@@ -75,50 +75,50 @@
 
 .category {
     margin: 0px;
-    min-width: 80px;
+    width: 33.333333333px;
     text-align: start;
 }
 
 .description {
     margin-right: 15px;
-    min-width: 100px;
+    width: 33.333333333px;
 }
 
 .Marco {
-    border-left: 5px solid rgb(100, 100, 253);
+    border-left: 5px solid rgb(100, 100, 253) !important;
 }
 
 .Marco:hover {
     transition: 75ms ease-in-out;
-    border: 5px solid rgb(100, 100, 253);
+    border: 5px solid rgb(100, 100, 253)!important;
 }
 
 .Tom {
-    border-left: 5px solid rgb(31, 133, 0);
+    border-left: 5px solid rgb(31, 133, 0)!important;
 }
 
 .Tom:hover {
     transition: 75ms ease-in-out;
-    border: 5px solid rgb(31, 133, 0);
+    border: 5px solid rgb(31, 133, 0) !important;
     ;
 }
 
 .Me {
-    border-left: 5px solid rgba(149, 0, 105, 0.883);
+    border-left: 5px solid rgba(149, 0, 105, 0.883) !important;
 }
 
 .Me:hover {
     transition: 70ms ease-in-out;
-    border: 5px solid rgba(149, 0, 105, 0.883);
+    border: 5px solid rgba(149, 0, 105, 0.883) !important;
 }
 
 .Valentin {
     transition: 75ms ease-in-out;
-    border-left: 5px solid rgb(204, 105, 12);
+    border-left: 5px solid rgb(204, 105, 12) !important;
 }
 
 .Valentin:hover {
-    border: 5px solid rgb(204, 105, 12);
+    border: 5px solid rgb(204, 105, 12) !important;
 }
 
 .main-div {
@@ -130,6 +130,7 @@
     display: flex;
     width: 100%;
     flex-direction: column;
+    margin-left: 150px;
 }
 
 .add-task {
@@ -184,17 +185,19 @@
     flex-wrap: wrap;
 }
 
-@media (max-width: 800px) {
-  .backlog-content {
+@media (max-width: 1000px) {
+    .backlog-content {
         width: 100%;
-        
+        margin-left: 0;
     }
-
     .buttons {
-        flex-direction: column;}
-
-    .edit-task{
+        flex-direction: column;
+    }
+    .edit-task {
         height: 100%;
         width: 100%;
-    }    
+    }
+    .backlog {
+        width: calc(100% - 20px);
+    }
 }

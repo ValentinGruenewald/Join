@@ -1,5 +1,6 @@
 async function addTask() {
     let newTask = {
+        'id': new Date().getTime(),
         'title': `${document.getElementById('title').value}`,
         'category': `${document.getElementById('category').value}`,
         'description': `${document.getElementById('description').value}`,
@@ -55,7 +56,7 @@ function renderUsers() {
 function openAddUser() {
     closeAllDeleteUserWindows();
     document.getElementById('open-add-user').classList.add('d-none');
-    setTimeout(function () {
+    setTimeout(function() {
         document.getElementById('open-add-user').classList.remove('d-none');
     }, 0);
     document.getElementById('add-user').classList.remove('d-none');
@@ -140,25 +141,25 @@ async function resetEverything() {
     await backend.setItem('tasksAsJSON', tasksAsJSON);
 
     let allUsers = [{
-        'first-name': 'Marco',
-        'last-name': 'Scherf',
-        'selected': true
-    },
-    {
-        'first-name': 'Valentin',
-        'last-name': 'Olberding',
-        'selected': false
-    },
-    {
-        'first-name': 'Tom',
-        'last-name': 'Petri',
-        'selected': false
-    },
-    {
-        'first-name': 'Valentin',
-        'last-name': 'Grünewald',
-        'selected': false
-    }
+            'first-name': 'Marco',
+            'last-name': 'Scherf',
+            'selected': true
+        },
+        {
+            'first-name': 'Valentin',
+            'last-name': 'Olberding',
+            'selected': false
+        },
+        {
+            'first-name': 'Tom',
+            'last-name': 'Petri',
+            'selected': false
+        },
+        {
+            'first-name': 'Valentin',
+            'last-name': 'Grünewald',
+            'selected': false
+        }
     ];
     let allUsersAsJSON = JSON.stringify(allUsers);
     await backend.setItem('allUsersAsJSON', allUsersAsJSON);
@@ -195,23 +196,24 @@ function renderAddUserButton() {
 
 function resetAllUsers() {
     allUsers = [{
-        'first-name': 'Marco',
-        'last-name': 'Scherf',
-        'selected': true
-    },
-    {
-        'first-name': 'Valentin',
-        'last-name': 'Olberding',
-        'selected': false
-    },
-    {
-        'first-name': 'Tom',
-        'last-name': 'Petri',
-        'selected': false
-    },
-    {
-        'first-name': 'Valentin',
-        'last-name': 'Grünewald',
-        'selected': false
-    }];
+            'first-name': 'Marco',
+            'last-name': 'Scherf',
+            'selected': true
+        },
+        {
+            'first-name': 'Valentin',
+            'last-name': 'Olberding',
+            'selected': false
+        },
+        {
+            'first-name': 'Tom',
+            'last-name': 'Petri',
+            'selected': false
+        },
+        {
+            'first-name': 'Valentin',
+            'last-name': 'Grünewald',
+            'selected': false
+        }
+    ];
 }

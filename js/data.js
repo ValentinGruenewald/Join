@@ -28,6 +28,9 @@ let allUsers = [{
 let currentUser = 'Marco Scherf';
 
 async function init() {
+
+    
+
     await downloadFromServer();
     let tasksAsJSON = await backend.getItem('tasksAsJSON');
     tasks = JSON.parse(tasksAsJSON);
@@ -43,7 +46,10 @@ async function init() {
         backlog();
     }
     if (typeof loadUsers == 'function') {
-        loadUsers()
+        loadUsers();
+    }
+    if (typeof renderTask == 'function') {
+        updateHTML();
     }
 
 }

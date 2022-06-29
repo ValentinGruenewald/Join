@@ -6,82 +6,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join</title>
-
     <link rel="shortcut icon" href="img/logo.png">
-
     <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/toDoColumn.css">
-    <link rel="stylesheet" href="css/inProgressColumn.css">
-    <link rel="stylesheet" href="css/testingColumn.css">
-    <link rel="stylesheet" href="css/doneColumn.css">
-    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/fonts.css">
     <script src="js/mini_backend.js"></script>
     <script src="js/data.js"></script>
-    <script src="js/addtask.js"></script>
+    <script src="js/board.js"></script>
     <script src="js/nav.js"></script>
-    <script src="js/draggable.js"></script>
 </head>
 
-<body onload="updateHTML()">
-
-    <div class="mainContainer">
-        <div class="d-none-mobile" id="mobile" onclick="openMenu()">
-            <img src="img/menu.png" id="mobile-img">
-        </div>
-        <nav id="nav">
-            <div class="head flex-align-center">
-                <a href="board.html"><img class="logo" src="img/logo.png" alt="Logo"></a>
-                <ul>
-                    <li class="nav-link"><a href="board.html" class="link">Board</a></li>
-                    <li class="nav-link"><a href="backlog.html" class="link">Backlog</a></li>
-                    <li class="nav-link"><a href="addtask.html" class="link">Add Task</a></li>
-                    <li class="active"><a href="help.html" class="link">Help</a></li>
-                    <li class="nav-link"><a href="impressum.html" class="link">Impressum</a></li>
-                </ul>
-            </div>
-            <div class="nav-footer">
-                <span id="active-user">GG</span>
-                <a href="index.html" class="logout">Log out</a>
-            </div>
-        </nav>
-
-
-        <div class="mainContentToDo">
-            <h2>
-                TO DO
-            </h2>
-            <div id="open" class="toDoColumn" ondrop="moveTo('open')" ondragover="allowDrop(event), highlight('open')">
-            </div>
-        </div>
-
-
-        <div class="mainContentInProgress">
-            <h2>
-                IN PROGRESS
-            </h2>
-            <div id="closed" class="inProgressColumn" ondrop="moveTo('closed')" ondragleave="removeHighlight('closed')"
-                ondragover="allowDrop(event)">
-            </div>
-        </div>
-
-
-        <div class="mainContentTesting">
-            <h2>
-                TESTING
-            </h2>
-            <div class="TestingColumn"></div>
-        </div>
-
-
-        <div class="mainContentDone">
-            <h2>
-                DONE
-            </h2>
-            <div class="DoneColumn"></div>
-        </div>
-
+<body onload="init()">
+    <div class="d-none-mobile" id="mobile" onclick="openMenu()">
+        <img src="img/menu.png" id="mobile-img">
     </div>
+    <nav id="nav">
+        <div class="head flex-align-center">
+            <a href="board.html"><img class="logo" src="img/logo.png" alt="Logo"></a>
+            <ul>
+                <li class="active"><a href="board.html" class="link">Board</a></li>
+                <li class="nav-link"><a href="backlog.html" class="link">Backlog</a></li>
+                <li class="nav-link"><a href="addtask.html" class="link">Add Task</a></li>
+                <li class="nav-link"><a href="help.html" class="link">Help</a></li>
+                <li class="nav-link"><a href="impressum.html" class="link">Impressum</a></li>
+            </ul>
+        </div>
+        <div class="nav-footer">
+            <span id="active-user">GG</span>
+            <a href="index.html" class="logout">Log out</a>
+        </div>
+    </nav>
 
+    <main id="content">
+        <div class="mainContainer">
+            <div class="colum-container">
+                <span class="title">TO DO</span>
+                <div id="todo" class="colum" ondrop="moveTo('todo')" ondragover="allowDrop(event), addhover('todo')" ondragleave="removeHover()"></div>
+            </div>
+            <div class="colum-container">
+                <span class="title">IN PORGRESS</span>
+                <div id="inprogress" class="colum" ondrop="moveTo('inprogress')" ondragover="allowDrop(event), addhover('inprogress')" ondragleave="removeHover()"></div>
+            </div>
+            <div class="colum-container">
+                <span class="title">TESTING</span>
+                <div id="testing" class="colum" ondrop="moveTo('testing')" ondragover="allowDrop(event), addhover('testing')" ondragleave="removeHover()"></div>
+            </div>
+            <div class="colum-container">
+                <span class="title">DONE</span>
+                <div id="done" class="colum" ondrop="moveTo('done')" ondragover="allowDrop(event), addhover('done')" ondragleave="removeHover()"></div>
+            </div>
+        </div>
+    </main>
 
 </body>
 

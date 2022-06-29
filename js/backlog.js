@@ -26,12 +26,12 @@ function backlog() {
     }
 }
 
-function backlogExplaining(i){
+function backlogExplaining(i) {
     let backlogInfo = document.getElementById('backlog-descripton');
-    if(tasks[i].place == 'backlog'){
+    if (tasks[i].place == 'backlog') {
         backlogInfo.innerHTML = `<div class="headline-backlog"> <h1>Backlog</h2>
                                         The following tasks need to be planned into a sprint.</div>`;
-    } else{
+    } else {
         backlogInfo.innerHTML = `<div class="headline-backlog"> <h1>Backlog</h2><div>You have to create a task first</div>`;
     }
 }
@@ -99,23 +99,24 @@ function generateTask(i) {
     </div>
 </div>
     `;
-    
+
 }
 
 
-function renderusers(){
+function renderusers() {
     for (let i = 0; i < allUsers.length; i++) {
-    document.getElementById('users').innerHTML += `
+        document.getElementById('users').innerHTML += `
     <div id="user_${i}" class="user-img" onclick="selectUser(${i})">${allUsers[i]['first-name'].charAt(0) + allUsers[i]['last-name'].charAt(0)}</div>
     `
     }
 }
+
 function cancelTask() {
     document.getElementById('change-task').classList.add('d-none')
 }
 
 function pushToBoard(i) {
-    tasks[i].place = 'open';
+    tasks[i].place = 'todo';
     updateBacklog();
     backlog();
     document.getElementById('change-task').classList.add('d-none');
@@ -125,8 +126,3 @@ async function updateBacklog() {
     let tasksAsJSON = JSON.stringify(tasks);
     await backend.setItem('tasksAsJSON', tasksAsJSON);
 }
-
-
-
-
-
