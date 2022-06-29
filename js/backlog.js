@@ -44,16 +44,20 @@ function openTask(i) {
     document.getElementById('description' + i).value = `${tasks[i]['description']}`
     document.getElementById('due-date' + i).value = `${tasks[i]['due-date']}`
     document.getElementById('urgency' + i).value = `${tasks[i]['urgency']}`
-    currentUser = allUsers[0]['name'];
+    
     renderusers();
 
 
 }
 
 function selectUser(user) {
+    
     clearUsers()
     document.getElementById(`user_${user}`).classList.add('selected-user');
     currentUser = allUsers[user]['first-name'] + ' ' + allUsers[user]['last-name'];
+    for (let i = 0; i < tasks.length; i++) {
+    tasks[i]['assigned-to'] = currentUser;
+    }
 }
 
 function clearUsers() {
