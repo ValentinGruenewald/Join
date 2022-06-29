@@ -135,38 +135,6 @@ async function deleteUser(user) {
 }
 
 
-async function resetEverything() {
-    let tasks = [];
-
-    let tasksAsJSON = JSON.stringify(tasks);
-    await backend.setItem('tasksAsJSON', tasksAsJSON);
-
-    let allUsers = [{
-            'first-name': 'Marco',
-            'last-name': 'Scherf',
-            'selected': true
-        },
-        {
-            'first-name': 'Valentin',
-            'last-name': 'Olberding',
-            'selected': false
-        },
-        {
-            'first-name': 'Tom',
-            'last-name': 'Petri',
-            'selected': false
-        },
-        {
-            'first-name': 'Valentin',
-            'last-name': 'Grünewald',
-            'selected': false
-        }
-    ];
-    let allUsersAsJSON = JSON.stringify(allUsers);
-    await backend.setItem('allUsersAsJSON', allUsersAsJSON);
-}
-
-
 function renderOneUser(i) {
     document.getElementById('users').innerHTML += `
         <div class="user-box">
