@@ -10,6 +10,15 @@ main {
     cursor: pointer;
 }
 
+.move {
+    display: none;
+    justify-content: center;
+}
+
+.hover:hover {
+    transform: scale(1.08);
+}
+
 .flex-end {
     display: flex;
     justify-content: flex-end;
@@ -73,6 +82,46 @@ main {
     color: rgb(114, 114, 114);
 }
 
+.empty-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 50px;
+}
+
+.empty img {
+    height: 50px;
+    width: 50px;
+}
+
+.empty img:hover {
+    transform: scale(1.08);
+}
+
+.empty a {
+    text-decoration: none;
+    color: rgb(30, 49, 144);
+}
+
+.empty a:hover {
+    color: rgb(25, 41, 119);
+    font-weight: bold;
+}
+
 @media (max-width: 1000px) {
     .mainContainer {
         display: flex;
@@ -80,5 +129,8 @@ main {
     }
     .colum-container {
         width: 100%;
+    }
+    .move {
+        display: flex;
     }
 }
