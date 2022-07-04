@@ -82,7 +82,7 @@ function generateTask(i) {
                 <p>CATEGORY</p>
                 <input class="inputs" type="text" id="category${i}" required>
                 <p>DESCRIPTION</p>
-                <input class="inputs-decription" type="text" id="description${i}" required>
+                <textarea class="inputs-decription" type="text" id="description${i}" required></textarea>
             </div>
             <div class="form-right">
                 <p>DUE DATE</p>

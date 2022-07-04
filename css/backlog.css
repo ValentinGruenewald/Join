@@ -19,6 +19,9 @@
 
 .inputs-decription{
     height: 75px;
+    border:1px solid lightgray;
+    resize: none;
+    border-radius: 5px;
 }
 
 .headline-backlog {
