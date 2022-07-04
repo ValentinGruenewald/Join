@@ -17,6 +17,8 @@ async function addTask() {
     tasks.push(newTask);
     let tasksAsJSON = JSON.stringify(tasks);
     await backend.setItem('tasksAsJSON', tasksAsJSON);
+    currentUserId = 0;
+    currentUser = allUsers[0]['first-name'] + ' ' + allUsers[0]['last-name'];
     clearForm();
 }
 
@@ -256,8 +258,8 @@ function resetAllUsers() {
 async function fixAssignationOfTasksAfterDeletingAUser(user) {
     for (let i = user; i < allUsers.length; i++) {
         for (let j = 0; j < tasks.length; j++) {
-            if (tasks[j]['user-id'] == `${user+1}`) {
-                tasks[j]['user-id'] = `${tasks[j]['user-id']-1}`;
+            if (tasks[j]['user-id'] == `${user + 1}`) {
+                tasks[j]['user-id'] = `${tasks[j]['user-id'] - 1}`;
             }
         }
     }
