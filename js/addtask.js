@@ -155,6 +155,7 @@ async function deleteUser(user) {
             currentUserId = 0;
             currentUser = allUsers[0]['first-name'] + ' ' + allUsers[0]['last-name'];
             renderUsers();
+            fixAssignationOfTasksAfterDeletingAUser(user);
         }
     }
 }
@@ -247,4 +248,18 @@ function resetAllUsers() {
         'selected': false
     }
     ];
+}
+
+
+async function fixAssignationOfTasksAfterDeletingAUser(user) {
+    user = user;
+    for (let i = user; i < allUsers.length; i++) {
+        for (let j = 0; j < tasks.length; j++) {
+            if (tasks[j]['user-id'] == `${user+1}`) {
+                tasks[j]['user-id'] = `${tasks[j]['user-id']-1}`;
+            }
+        }
+    }
+    let tasksAsJSON = JSON.stringify(tasks);
+    await backend.setItem('tasksAsJSON', tasksAsJSON);
 }
