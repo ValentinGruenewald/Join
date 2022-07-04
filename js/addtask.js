@@ -7,6 +7,7 @@ async function addTask() {
         'due-date': `${document.getElementById('due-date').value}`,
         'urgency': `${document.getElementById('urgency').value}`,
         'assigned-to': `${currentUser}`,
+        'user-id': `${currentUserId}`,
         'place': `backlog`
     };
     tasks.push(newTask);
@@ -30,7 +31,7 @@ function selectUser(user) {
     clearUsers()
     document.getElementById(`user_${user}`).classList.add('selected-user');
     currentUser = allUsers[user]['first-name'] + ' ' + allUsers[user]['last-name'];
-    
+    currentUserId = allUsers[user]['user-id'];
 }
 
 
@@ -89,6 +90,7 @@ function newUserBlueprint() {
     return {
         'first-name': document.getElementById('new-user-first-name').value,
         'last-name': document.getElementById('new-user-last-name').value,
+        'user-id': allUsers.length,
         'selected': false
     };
 }
@@ -165,24 +167,28 @@ function renderAddUserButton() {
 
 function resetAllUsers() {
     allUsers = [{
-            'first-name': 'Marco',
-            'last-name': 'Scherf',
-            'selected': true
-        },
-        {
-            'first-name': 'Valentin',
-            'last-name': 'Olberding',
-            'selected': false
-        },
-        {
-            'first-name': 'Tom',
-            'last-name': 'Petri',
-            'selected': false
-        },
-        {
-            'first-name': 'Valentin',
-            'last-name': 'Grünewald',
-            'selected': false
-        }
-    ];
+        'first-name': 'Marco',
+        'last-name': 'Scherf',
+        'user-id': 0,
+        'selected': true
+    },
+    {
+        'first-name': 'Valentin',
+        'last-name': 'Olberding',
+        'user-id': 1,
+        'selected': false
+    },
+    {
+        'first-name': 'Tom',
+        'last-name': 'Petri',
+        'user-id': 2,
+        'selected': false
+    },
+    {
+        'first-name': 'Valentin',
+        'last-name': 'Grünewald',
+        'user-id': 3,
+        'selected': false
+    }
+];
 }
