@@ -36,6 +36,7 @@ function selectUser(user) {
     document.getElementById(`user_${user}`).classList.add('selected-user');
     currentUser = allUsers[user]['first-name'] + ' ' + allUsers[user]['last-name'];
     currentUserId = allUsers[user]['user-id'];
+    document.getElementById('assigned-to').innerHTML = `ASSIGNED TO: ${currentUser}`;
 }
 
 
@@ -56,6 +57,7 @@ function renderUsers() {
     }
     renderAddUserButton();
     document.getElementById('user_0').classList.add('selected-user');
+    document.getElementById('assigned-to').innerHTML = `ASSIGNED TO: ${currentUser}`;
 }
 
 
