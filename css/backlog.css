@@ -39,6 +39,7 @@
     justify-content: center;
     align-items: center;
     margin: 3px;
+    cursor: pointer;
 }
 
 .backlog-head h5 {
@@ -174,7 +175,6 @@
 }
 
 .cancel-button:hover {
-    margin-right: 5px;
     background-color: navy;
 }
 
