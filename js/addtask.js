@@ -1,4 +1,6 @@
 let userIsAssignedToAnyTask = false;
+let userBelongsToDefaultUsers = false;
+let userAlreadyExists = false;
 
 async function addTask() {
     let newTask = {
@@ -74,16 +76,21 @@ function closeAddUser() {
 
 
 async function addUser() {
-    if (checkIfNewUserIsValid() == true) {
-        let newUser = newUserBlueprint();
-        allUsers.push(newUser);
-        let allUsersAsJSON = JSON.stringify(allUsers);
-        await backend.setItem('allUsersAsJSON', allUsersAsJSON);
-        renderUsers();
-        closeAddUser();
-        clearAddUser();
+    checkifUserAlreadyExists();
+    if (userAlreadyExists == true) {
+        alert('You cannot add a user that already exists.');
     } else {
-        alert('Please enter your full name.');
+        if (checkIfNewUserIsValid() == true) {
+            let newUser = newUserBlueprint();
+            allUsers.push(newUser);
+            let allUsersAsJSON = JSON.stringify(allUsers);
+            await backend.setItem('allUsersAsJSON', allUsersAsJSON);
+            renderUsers();
+            closeAddUser();
+            clearAddUser();
+        } else {
+            alert('Please enter your full name.');
+        }
     }
 }
 
@@ -132,17 +139,23 @@ function closeAllDeleteUserWindows() {
 
 
 async function deleteUser(user) {
-    checkIfUserIsAssignedToAnyTask(user);
-    if (userIsAssignedToAnyTask == true) {
-        alert('You cannot delete this user because it is currently assigned to a task.');
-        closeAllDeleteUserWindows();
+    checkIfUserBelongsToDefaultUsers(user);
+    if (userBelongsToDefaultUsers == true) {
+        alert('You cannot delete this user because it is one of the default users.');
     } else {
-        allUsers.splice(user, 1);
-        let allUsersAsJSON = JSON.stringify(allUsers);
-        await backend.setItem('allUsersAsJSON', allUsersAsJSON);
-        currentUserId = 0;
-        currentUser = allUsers[0]['first-name'] + ' ' + allUsers[0]['last-name'];
-        renderUsers();
+        checkIfUserIsAssignedToAnyTask(user);
+        if (userIsAssignedToAnyTask == true) {
+            alert('You cannot delete this user because it is currently assigned to a task.');
+            closeAllDeleteUserWindows();
+        } else {
+            allUsers.splice(user, 1);
+            let allUsersAsJSON = JSON.stringify(allUsers);
+            await backend.setItem('allUsersAsJSON', allUsersAsJSON);
+            correctUserIds();
+            currentUserId = 0;
+            currentUser = allUsers[0]['first-name'] + ' ' + allUsers[0]['last-name'];
+            renderUsers();
+        }
     }
 }
 
@@ -174,6 +187,23 @@ function renderAddUserButton() {
     `;
 }
 
+function checkifUserAlreadyExists() {
+    userAlreadyExists = false;
+    let currentNewName = document.getElementById('new-user-first-name').value + ' ' + document.getElementById('new-user-last-name').value;
+    for (let i = 0; i < allUsers.length; i++) {
+        let alreadyExistingName = allUsers[i]['first-name'] + ' ' + allUsers[i]['last-name'];
+        if (currentNewName == alreadyExistingName) {
+            userAlreadyExists = true;
+        }
+    }
+}
+
+function checkIfUserBelongsToDefaultUsers(user) {
+    if (allUsers[user]['first-name'] + ' ' + allUsers[user]['last-name'] == 'Marco Scherf' || allUsers[user]['first-name'] + ' ' + allUsers[user]['last-name'] == 'Valentin Olberding' || allUsers[user]['first-name'] + ' ' + allUsers[user]['last-name'] == 'Tom Petri' || allUsers[user]['first-name'] + ' ' + allUsers[user]['last-name'] == 'Valentin Grünewald') {
+        userBelongsToDefaultUsers = true;
+    }
+}
+
 
 function checkIfUserIsAssignedToAnyTask(user) {
     userIsAssignedToAnyTask = false;
@@ -181,6 +211,12 @@ function checkIfUserIsAssignedToAnyTask(user) {
         if (tasks[i]['assigned-to'] == allUsers[user]['first-name'] + ' ' + allUsers[user]['last-name']) {
             userIsAssignedToAnyTask = true;
         } else { }
+    }
+}
+
+function correctUserIds() {
+    for (let i = 0; i < allUsers.length; i++) {
+        allUsers[i]['user-id'] = i;
     }
 }
 
