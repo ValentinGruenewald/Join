@@ -1,3 +1,5 @@
+let currentTask;
+
 function backlog() {
     let test = document.getElementById('backlogs');
     test.innerHTML = ``;
@@ -26,17 +28,18 @@ function backlog() {
     }
 }
 
-function backlogExplaining(i) {
+function backlogExplaining(i){
     let backlogInfo = document.getElementById('backlog-descripton');
-    if (tasks[i].place == 'backlog') {
+    if(tasks[i].place == 'backlog'){
         backlogInfo.innerHTML = `<div class="headline-backlog"> <h1>Backlog</h2>
                                         The following tasks need to be planned into a sprint.</div>`;
-    } else {
+    } else{
         backlogInfo.innerHTML = `<div class="headline-backlog"> <h1>Backlog</h2><div>You have to create a task first</div>`;
     }
 }
 
 function openTask(i) {
+    currentTask = i;
     document.getElementById('change-task').classList.remove('d-none')
     document.getElementById('change-task').innerHTML = generateTask(i);
     document.getElementById('title' + i).value = `${tasks[i]['title']}`
@@ -44,14 +47,15 @@ function openTask(i) {
     document.getElementById('description' + i).value = `${tasks[i]['description']}`
     document.getElementById('due-date' + i).value = `${tasks[i]['due-date']}`
     document.getElementById('urgency' + i).value = `${tasks[i]['urgency']}`
-    
     renderusers();
+    selectedUser();
+}
 
-
+function selectedUser(){
+    document.getElementById(`user_${tasks[currentTask]['user-id']}`).classList.add('selected-user');
 }
 
 function selectUser(user) {
-    
     clearUsers()
     document.getElementById(`user_${user}`).classList.add('selected-user');
     currentUser = allUsers[user]['first-name'] + ' ' + allUsers[user]['last-name'];
@@ -103,24 +107,23 @@ function generateTask(i) {
     </div>
 </div>
     `;
-
+    
 }
 
 
-function renderusers() {
+function renderusers(){
     for (let i = 0; i < allUsers.length; i++) {
-        document.getElementById('users').innerHTML += `
+    document.getElementById('users').innerHTML += `
     <div id="user_${i}" class="user-img" onclick="selectUser(${i})">${allUsers[i]['first-name'].charAt(0) + allUsers[i]['last-name'].charAt(0)}</div>
     `
     }
 }
-
 function cancelTask() {
     document.getElementById('change-task').classList.add('d-none')
 }
 
 function pushToBoard(i) {
-    tasks[i].place = 'todo';
+    tasks[i].place = 'open';
     updateBacklog();
     backlog();
     document.getElementById('change-task').classList.add('d-none');
