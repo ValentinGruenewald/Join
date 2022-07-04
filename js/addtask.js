@@ -140,6 +140,8 @@ async function deleteUser(user) {
         allUsers.splice(user, 1);
         let allUsersAsJSON = JSON.stringify(allUsers);
         await backend.setItem('allUsersAsJSON', allUsersAsJSON);
+        currentUserId = 0;
+        currentUser = allUsers[0]['first-name'] + ' ' + allUsers[0]['last-name'];
         renderUsers();
     }
 }
