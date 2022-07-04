@@ -1,3 +1,5 @@
+let userIsAssignedToAnyTask = false;
+
 async function addTask() {
     let newTask = {
         'id': new Date().getTime(),
@@ -58,7 +60,7 @@ function renderUsers() {
 function openAddUser() {
     closeAllDeleteUserWindows();
     document.getElementById('open-add-user').classList.add('d-none');
-    setTimeout(function() {
+    setTimeout(function () {
         document.getElementById('open-add-user').classList.remove('d-none');
     }, 0);
     document.getElementById('add-user').classList.remove('d-none');
@@ -130,10 +132,16 @@ function closeAllDeleteUserWindows() {
 
 
 async function deleteUser(user) {
-    allUsers.splice(user, 1);
-    let allUsersAsJSON = JSON.stringify(allUsers);
-    await backend.setItem('allUsersAsJSON', allUsersAsJSON);
-    renderUsers();
+    checkIfUserIsAssignedToAnyTask(user);
+    if (userIsAssignedToAnyTask == true) {
+        alert('You cannot delete this user because it is currently assigned to a task.');
+        closeAllDeleteUserWindows();
+    } else {
+        allUsers.splice(user, 1);
+        let allUsersAsJSON = JSON.stringify(allUsers);
+        await backend.setItem('allUsersAsJSON', allUsersAsJSON);
+        renderUsers();
+    }
 }
 
 
@@ -165,6 +173,16 @@ function renderAddUserButton() {
 }
 
 
+function checkIfUserIsAssignedToAnyTask(user) {
+    userIsAssignedToAnyTask = false;
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i]['assigned-to'] == allUsers[user]['first-name'] + ' ' + allUsers[user]['last-name']) {
+            userIsAssignedToAnyTask = true;
+        } else { }
+    }
+}
+
+
 function resetAllUsers() {
     allUsers = [{
         'first-name': 'Marco',
@@ -190,5 +208,5 @@ function resetAllUsers() {
         'user-id': 3,
         'selected': false
     }
-];
+    ];
 }
