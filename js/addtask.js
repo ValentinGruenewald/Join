@@ -252,7 +252,6 @@ function resetAllUsers() {
 
 
 async function fixAssignationOfTasksAfterDeletingAUser(user) {
-    user = user;
     for (let i = user; i < allUsers.length; i++) {
         for (let j = 0; j < tasks.length; j++) {
             if (tasks[j]['user-id'] == `${user+1}`) {
