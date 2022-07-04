@@ -82,7 +82,7 @@ function generateTask(i) {
                 <p>CATEGORY</p>
                 <input class="inputs" type="text" id="category${i}" required>
                 <p>DESCRIPTION</p>
-                <input class="inputs" type="text" id="description${i}" required>
+                <input class="inputs-decription" type="text" id="description${i}" required>
             </div>
             <div class="form-right">
                 <p>DUE DATE</p>
@@ -123,7 +123,7 @@ function cancelTask() {
 }
 
 function pushToBoard(i) {
-    tasks[i].place = 'todo';
+    tasks[i].place = 'open';
     updateBacklog();
     backlog();
     document.getElementById('change-task').classList.add('d-none');

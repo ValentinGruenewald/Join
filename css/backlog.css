@@ -17,6 +17,10 @@
     margin-bottom: 50px;
 }
 
+.inputs-decription{
+    height: 75px;
+}
+
 .headline-backlog {
     width: 80%;
     display: flex;
@@ -46,6 +50,7 @@
     color: rgb(0, 0, 164);
     width: 90px;
 }
+
 
 .backlogs-container {
     display: flex;
@@ -91,6 +96,8 @@
 }
 
 .description {
+    display: flex;
+    flex-wrap: wrap;
     margin-right: 15px;
     width: 78px;
     overflow: hidden;
