@@ -59,9 +59,7 @@ function selectUser(user) {
     clearUsers()
     document.getElementById(`user_${user}`).classList.add('selected-user');
     currentUser = allUsers[user]['first-name'] + ' ' + allUsers[user]['last-name'];
-    for (let i = 0; i < tasks.length; i++) {
-        tasks[i]['assigned-to'] = currentUser;
-    }
+        tasks[currentTask]['assigned-to'] = currentUser;
 }
 
 function clearUsers() {
