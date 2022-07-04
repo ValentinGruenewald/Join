@@ -123,7 +123,7 @@ function cancelTask() {
 }
 
 function pushToBoard(i) {
-    tasks[i].place = 'open';
+    tasks[i].place = 'todo';
     updateBacklog();
     backlog();
     document.getElementById('change-task').classList.add('d-none');
