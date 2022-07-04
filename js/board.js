@@ -5,23 +5,27 @@ function getID(id) {
 }
 
 function updateHTML() {
+    let boardIsFilled = false;
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
-        if (task.place == 'backlog') {
-            getID('empty-container').style.display = 'flex';
-            clearColums();
-        } else if (task.place == 'todo') {
-            clearColums();
-            getID('empty-container').style.display = 'none';
-            let todo = tasks.filter(x => x['place'] == 'todo');
-            renderTask(todo);
-            let inprogress = tasks.filter(x => x['place'] == 'inprogress');
-            renderTask(inprogress);
-            let testing = tasks.filter(x => x['place'] == 'testing');
-            renderTask(testing);
-            let done = tasks.filter(x => x['place'] == 'done');
-            renderTask(done);
+        if (task.place == 'backlog') { } else {
+            boardIsFilled = true;
         }
+    }
+    if (boardIsFilled == false) {
+        getID('empty-container').style.display = 'flex';
+        clearColums();
+    } else {
+        clearColums();
+        getID('empty-container').style.display = 'none';
+        let todo = tasks.filter(x => x['place'] == 'todo');
+        renderTask(todo);
+        let inprogress = tasks.filter(x => x['place'] == 'inprogress');
+        renderTask(inprogress);
+        let testing = tasks.filter(x => x['place'] == 'testing');
+        renderTask(testing);
+        let done = tasks.filter(x => x['place'] == 'done');
+        renderTask(done);
     }
 }
 
