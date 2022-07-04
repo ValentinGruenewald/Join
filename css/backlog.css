@@ -92,6 +92,8 @@
 
 .description {
     margin-right: 15px;
+    width: 78px;
+    overflow: hidden;
 }
 
 .Marco {
@@ -169,8 +171,7 @@
 .add-task {
     display: flex;
     flex-direction: column;
-    padding-left: 0px !important; 
-
+    padding-left: 0px !important;
 }
 
 .cancel-button:hover {
@@ -213,9 +214,9 @@
     }
 }
 
-@media (max-width: 650px){
-#users {
-    margin-left: 20% !important;
-    margin-right: 20%;
-}
+@media (max-width: 650px) {
+    #users {
+        margin-left: 20% !important;
+        margin-right: 20%;
+    }
 }
