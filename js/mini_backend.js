@@ -25,7 +25,6 @@ window.onload = async function() {
 async function downloadFromServer() {
     let result = await loadJSONFromServer();
     jsonFromServer = JSON.parse(result);
-    console.log('Loaded', result);
 }
 
 function setURL(url) {
@@ -93,10 +92,8 @@ function saveJSONToServer() {
                 }
             }
         };
-
         xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhttp.send(JSON.stringify(jsonFromServer));
-
     });
 }
 

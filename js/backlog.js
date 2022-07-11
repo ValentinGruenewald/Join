@@ -1,40 +1,51 @@
 let currentTask;
 
 function backlog() {
-    let test = document.getElementById('backlogs');
-    test.innerHTML = ``;
+    backlogExplaining();
+    let backlog = document.getElementById('backlogs');
+    backlog.innerHTML = ``;
 
     for (let i = 0; i < tasks.length; i++) {
-        backlogExplaining(i);
+
         if (tasks[i].place == 'backlog') {
-            test.innerHTML += `<div     onclick="openTask(${i})" class="backlog  ${tasks[i]['assigned-to']}">
-                               
-                                <div class="profile">
-                                <div class="profile-picture">
-                                </div>
-                                <div>
-                                    ${tasks[i]['assigned-to']}
-                                    </div>
-                                </div>
-                                <div class="category">
-                                    <b>${tasks[i]['category']}</b>
-                                </div>
-                                <div class="description">
-                                    ${tasks[i]['description']}
-                                </div>
-                               
-                            </div>`;
+            backlog.innerHTML += tempaletBacklog(i);
+            shortDescription(i);
         }
     }
 }
 
-function backlogExplaining(i) {
+function tempaletBacklog(i) {
+    return `<div onclick="openTask(${i})" class="backlog ${tasks[i]['assigned-to']}">
+                <div class="profile">
+                    <div class="profile-picture">
+                </div>
+                <div>
+                    ${tasks[i]['assigned-to']}
+                </div>
+            </div>
+            <div class="category">
+                <b>${tasks[i]['category']}</b>
+            </div>
+            <div class="description" id="desc${i}">
+            </div>`
+}
+
+let result;
+
+function shortDescription(i) {
+    let description = tasks[i].description;
+    let count = 40;
+    result = description.slice(0, count) + (description.length > count ? "..." : "");
+    document.getElementById(`desc${i}`).innerHTML = result;
+}
+
+function backlogExplaining() {
     let backlogInfo = document.getElementById('backlog-descripton');
-    if (tasks[i].place == 'backlog') {
-        backlogInfo.innerHTML = `<div class="headline-backlog"> <h1>Backlog</h2>
-                                        The following tasks need to be planned into a sprint.</div>`;
+    if (tasks.length > 0) {
+        backlogInfo.innerHTML = `<div class="headline-backlog"> <h1>Backlog</h1>
+                                        <span>The following tasks need to be planned into a sprint.</span></div>`;
     } else {
-        backlogInfo.innerHTML = `<div class="headline-backlog"> <h1>Backlog</h2><div>You have to create a task first</div>`;
+        backlogInfo.innerHTML = `<div class="headline-backlog"> <h1>Backlog</h1><div><span>You have to create a task first.</span></div>`;
     }
 }
 
@@ -73,12 +84,16 @@ function generateTask(i) {
     return /*html*/ `
     <div class="edit-task" id="content">
     <div class="add-task">
-        <form class="form" action="return: false">
+        <form class="form" onsubmit="event.preventDefault(), pushToBoard(${i})">
             <div class="form-left">
                 <p>TITLE</p>
                 <input class="inputs" type="text" id="title${i}" required>
                 <p>CATEGORY</p>
-                <input class="inputs" type="text" id="category${i}" required>
+                <select type="text" name="category${i}" id="category${i}">
+                <option value="Management">Management</option>
+                <option value="Design">Design</option>
+                <option value="Sales">Sales</option>
+            </select>
                 <p>DESCRIPTION</p>
                 <textarea class="inputs-decription" type="text" id="description${i}" required></textarea>
             </div>
@@ -95,8 +110,8 @@ function generateTask(i) {
                 <div id="users" class="users">
                 </div>
                 <div class="buttons">
-                <button onclick="cancelTask()" class="cancel-button">CANCEL</button>
-                <button onclick="pushToBoard(${i})" class="addToBoard-button">ADD TO BOARD</button>
+                <button type="reset" onclick="cancelTask()" class="cancel-button">CANCEL</button>
+                <button type="submit" class="addToBoard-button">ADD TO BOARD</button>
                 </div>
             </div>
         </form>
@@ -122,10 +137,16 @@ function cancelTask() {
 }
 
 function pushToBoard(i) {
+    tasks[i].title = document.getElementById(`title${i}`).value;
+    tasks[i].category = document.getElementById(`category${i}`).value;
+    tasks[i].description = document.getElementById(`description${i}`).value;
+    tasks[i]['due-date'] = document.getElementById(`due-date${i}`).value;
+    tasks[i].urgency = document.getElementById(`urgency${i}`).value;
     tasks[i].place = 'todo';
     updateBacklog();
     backlog();
     document.getElementById('change-task').classList.add('d-none');
+    showPopup();
 }
 
 async function updateBacklog() {

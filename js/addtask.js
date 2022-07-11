@@ -1,9 +1,21 @@
 let userIsAssignedToAnyTask = false;
 let userBelongsToDefaultUsers = false;
 let userAlreadyExists = false;
+let newTask;
+let allUsersAsJSON;
 
 async function addTask() {
-    let newTask = {
+    TaskJson();
+    tasks.push(newTask);
+    let tasksAsJSON = JSON.stringify(tasks);
+    await backend.setItem('tasksAsJSON', tasksAsJSON);
+    currentUser = allUsers[0]['first-name'] + ' ' + allUsers[0]['last-name'];
+    clearForm();
+    showPopup();
+}
+
+function TaskJson() {
+    newTask = {
         'id': new Date().getTime(),
         'title': `${document.getElementById('title').value}`,
         'category': `${document.getElementById('category').value}`,
@@ -13,13 +25,8 @@ async function addTask() {
         'assigned-to': `${currentUser}`,
         'user-id': `${currentUserId}`,
         'place': `backlog`
-    };
-    tasks.push(newTask);
-    let tasksAsJSON = JSON.stringify(tasks);
-    await backend.setItem('tasksAsJSON', tasksAsJSON);
+    }
     currentUserId = 0;
-    currentUser = allUsers[0]['first-name'] + ' ' + allUsers[0]['last-name'];
-    clearForm();
 }
 
 
@@ -66,7 +73,7 @@ function renderUsers() {
 function openAddUser() {
     closeAllDeleteUserWindows();
     document.getElementById('open-add-user').classList.add('d-none');
-    setTimeout(function () {
+    setTimeout(function() {
         document.getElementById('open-add-user').classList.remove('d-none');
     }, 0);
     document.getElementById('add-user').classList.remove('d-none');
@@ -85,9 +92,7 @@ async function addUser() {
         alert('You cannot add a user that already exists.');
     } else {
         if (checkIfNewUserIsValid() == true) {
-            let newUser = newUserBlueprint();
-            allUsers.push(newUser);
-            let allUsersAsJSON = JSON.stringify(allUsers);
+            newUserAdd();
             await backend.setItem('allUsersAsJSON', allUsersAsJSON);
             renderUsers();
             closeAddUser();
@@ -98,6 +103,11 @@ async function addUser() {
     }
 }
 
+function newUserAdd() {
+    let newUser = newUserBlueprint();
+    allUsers.push(newUser);
+    allUsersAsJSON = JSON.stringify(allUsers);
+}
 
 function newUserBlueprint() {
     return {
@@ -215,7 +225,7 @@ function checkIfUserIsAssignedToAnyTask(user) {
     for (let i = 0; i < tasks.length; i++) {
         if (tasks[i]['assigned-to'] == allUsers[user]['first-name'] + ' ' + allUsers[user]['last-name']) {
             userIsAssignedToAnyTask = true;
-        } else { }
+        } else {}
     }
 }
 
@@ -228,29 +238,29 @@ function correctUserIds() {
 
 function resetAllUsers() {
     allUsers = [{
-        'first-name': 'Marco',
-        'last-name': 'Scherf',
-        'user-id': 0,
-        'selected': true
-    },
-    {
-        'first-name': 'Valentin',
-        'last-name': 'Olberding',
-        'user-id': 1,
-        'selected': false
-    },
-    {
-        'first-name': 'Tom',
-        'last-name': 'Petri',
-        'user-id': 2,
-        'selected': false
-    },
-    {
-        'first-name': 'Valentin',
-        'last-name': 'Grünewald',
-        'user-id': 3,
-        'selected': false
-    }
+            'first-name': 'Marco',
+            'last-name': 'Scherf',
+            'user-id': 0,
+            'selected': true
+        },
+        {
+            'first-name': 'Valentin',
+            'last-name': 'Olberding',
+            'user-id': 1,
+            'selected': false
+        },
+        {
+            'first-name': 'Tom',
+            'last-name': 'Petri',
+            'user-id': 2,
+            'selected': false
+        },
+        {
+            'first-name': 'Valentin',
+            'last-name': 'Grünewald',
+            'user-id': 3,
+            'selected': false
+        }
     ];
 }
 

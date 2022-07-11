@@ -57,7 +57,7 @@
                 <h3 class="text-blue">Learning Management System Project</h3>
             </div>
 
-            <form class="form" action="return: false" onsubmit="addTask()">
+            <form class="form" onsubmit="event.preventDefault(),addTask()">
                 <div class="form-left">
                     <p class="text-blue">TITLE</p>
                     <input type="text" id="title" required>
@@ -68,7 +68,7 @@
                         <option value="Sales">Sales</option>
                     </select>
                     <p class="text-blue">DESCRIPTION</p>
-                    <input type="text" id="description" required>
+                    <textarea class="inputs-decription" cols="35" rows="8" type="text" id="description" required></textarea>
                 </div>
 
                 <div class="form-right">
@@ -87,6 +87,9 @@
                     <button>CREATE TASK</button>
                 </div>
             </form>
+        </div>
+        <div id="popup">
+            <div>Task has been added to the Backlog</div>
         </div>
     </main>
 </body>

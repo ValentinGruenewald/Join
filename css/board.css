@@ -1,5 +1,10 @@
 main {
     margin-top: 50px;
+    width: calc(100% - 50px) !important;
+}
+
+.d-none {
+    display: none !important;
 }
 
 .highlight {
@@ -29,6 +34,7 @@ main {
 .mainContainer {
     display: flex;
     flex-wrap: nowrap;
+    width: 100%;
 }
 
 .colum-container {
@@ -45,11 +51,12 @@ main {
 .colum {
     display: flex;
     flex-direction: column;
-    min-height: 600px;
+    height: 850px;
     width: 95%;
     background-color: #f4f3fb;
     margin: 10px;
     border-radius: 7px;
+    overflow-y: auto;
 }
 
 .board-task {
@@ -70,6 +77,12 @@ main {
     padding: 5px;
     text-align: center;
     font-weight: bold;
+}
+
+.board-description {
+    height: 80px;
+    overflow: hidden;
+    overflow-wrap: break-word;
 }
 
 .board-footer {
@@ -122,7 +135,58 @@ main {
     font-weight: bold;
 }
 
-@media (max-width: 1000px) {
+.show-task {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.241);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#big-task {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.big-task {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    min-width: 240px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 200px;
+}
+
+.big-description {
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+.close {
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.close:hover {
+    transform: rotate(180deg);
+    transition: transform 300ms ease;
+}
+
+@media (max-width: 1250px) {
+    .big-task {
+        margin: 0 10px 0 210px;
+    }
+}
+
+@media (max-width: 1100px) {
     .mainContainer {
         display: flex;
         flex-direction: column;
@@ -132,5 +196,8 @@ main {
     }
     .move {
         display: flex;
+    }
+    .big-task {
+        margin: 0 10px;
     }
 }

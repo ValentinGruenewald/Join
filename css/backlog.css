@@ -2,6 +2,15 @@
     font-family: 'PT Sans';
 }
 
+.width {
+    width: 33.333333333%;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
 .backlog-head-container {
     width: 100%;
     display: flex;
@@ -17,7 +26,11 @@
     margin-bottom: 50px;
 }
 
-.inputs-decription{
+.selected-user {
+    background-color: gray;
+}
+
+.inputs-decription {
     height: 75px;
 }
 
@@ -27,11 +40,16 @@
     flex-direction: column;
 }
 
+.headline-backlog span {
+    color: rgb(30, 49, 144);
+    font-weight: 700;
+}
+
 .backlog-head {
     display: flex;
-    width: 70%;
+    width: 100%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .user-img {
@@ -50,7 +68,6 @@
     color: rgb(0, 0, 164);
     width: 90px;
 }
-
 
 .backlogs-container {
     display: flex;
@@ -81,7 +98,7 @@
 }
 
 .profile {
-    width: 33.333333333px;
+    width: 33.333333333%;
     height: 90px;
     display: flex;
     margin-left: 15px;
@@ -91,15 +108,15 @@
 
 .category {
     margin: 0px;
-    width: 33.333333333px;
+    width: 33.333333333%;
     text-align: start;
 }
 
 .description {
     display: flex;
     flex-wrap: wrap;
+    width: 33.333333333%;
     margin-right: 15px;
-    width: 78px;
     overflow: hidden;
 }
 
@@ -219,11 +236,26 @@
     .backlog {
         width: calc(100% - 20px);
     }
+    .flex-center {
+        display: unset;
+        justify-content: unset;
+        padding-left: 30px;
+    }
 }
 
 @media (max-width: 650px) {
     #users {
         margin-left: 20% !important;
         margin-right: 20%;
+    }
+    .description {
+        width: 100px;
+        margin-right: 0;
+    }
+    .profile {
+        width: 85px;
+    }
+    .category {
+        width: 100px;
     }
 }

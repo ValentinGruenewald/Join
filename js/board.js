@@ -8,25 +8,28 @@ function updateHTML() {
     let boardIsFilled = false;
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
-        if (task.place == 'backlog') { } else {
+        if (task.place == 'backlog') {} else {
             boardIsFilled = true;
         }
     }
     if (boardIsFilled == false) {
-        getID('empty-container').style.display = 'flex';
+        getID('empty-container').classList.remove('d-none');
         clearColums();
     } else {
         clearColums();
-        getID('empty-container').style.display = 'none';
-        let todo = tasks.filter(x => x['place'] == 'todo');
-        renderTask(todo);
-        let inprogress = tasks.filter(x => x['place'] == 'inprogress');
-        renderTask(inprogress);
-        let testing = tasks.filter(x => x['place'] == 'testing');
-        renderTask(testing);
-        let done = tasks.filter(x => x['place'] == 'done');
-        renderTask(done);
+        filterTasks();
     }
+}
+
+function filterTasks() {
+    let todo = tasks.filter(x => x['place'] == 'todo');
+    renderTask(todo);
+    let inprogress = tasks.filter(x => x['place'] == 'inprogress');
+    renderTask(inprogress);
+    let testing = tasks.filter(x => x['place'] == 'testing');
+    renderTask(testing);
+    let done = tasks.filter(x => x['place'] == 'done');
+    renderTask(done);
 }
 
 function clearColums() {
@@ -47,21 +50,50 @@ function renderTask(task) {
 
 function templateTasks(task, i) {
     return ` 
-        <div class="board-task cursor" id="${task['place']}${i}" draggable="true" ondragstart="startDragging(${task['id']})" ontouchmove="moveTo('inprogress')" ondragend="removeHover()">
-            <div class="board-category flex-end">${task.category}</div>
-            <div class="board-title">${task.title}</div>
-            <div class="board-description">${task.description}</div>
-            <div class="board-member flex-end">${task['assigned-to']}</div>
+        <div class="board-task" id="${task['place']}${i}"  draggable="true" ondragstart="startDragging(${task['id']})" ontouchmove="moveTo('inprogress')" ondragend="removeHover()">
+            <div class="cursor" onclick="showTask(${task.id})">
+                <div class="board-category flex-end">${task.category}</div>
+                <div class="board-title">${task.title}</div>
+                <div class="board-description">${task.description}</div>
+                <div class="board-member flex-end">${task['assigned-to']}</div>
+            </div>
             <div class="board-footer">
                 <div class="board-date">${formateDate(task['due-date'])}</div>
-                <div class="hover">
-                    <img onclick="deleteTask(${task['id']})" src="img/basket.png">
+                <div class="hover cursor">
+                <img onclick="deleteTask(${task['id']})" src="img/basket.png">
                 </div>
             </div>
-            <div class="hover move"><img src="img/finish.png" onclick="nextSection(${task['id']}, '${task['place']}')"></div>
+            <div class="hover move cursor"><img src="img/finish.png" onclick="nextSection(${task['id']}, '${task['place']}')"></div>
         </div>
+
     `;
 }
+
+function showTask(id) {
+    let task = tasks.findIndex(obj => obj.id == id);
+    getID('big-task').innerHTML = templateBigTask(task);
+    getID('big-task-container').classList.remove('d-none');
+    getID('big-task-container').style.top = `${window.scrollY}px`;
+}
+
+function templateBigTask(i) {
+    return `
+    <div class="close"><img src="img/task-close1.png" onclick="closeTask()"></div>
+    <div class="big-task">
+        <div class="board-category flex-end">${tasks[i].category}</div>
+        <div class="board-title">${tasks[i].title}</div>
+        <div class="board-description big-descriotion" id="board">${tasks[i].description}</div>
+        <div class="board-member flex-end">${tasks[i]['assigned-to']}</div>
+        <div class="board-footer">
+            <div class="board-date">${formateDate(tasks[i]['due-date'])}</div>
+            <div class="hover cursor">
+                <img onclick="deleteTaskBig(${tasks[i]['id']})" src="img/basket.png">
+            </div>
+        </div>
+    </div>
+    `;
+}
+
 
 function checkUrgency(task, i) {
     switch (task['urgency']) {
@@ -127,6 +159,15 @@ async function deleteTask(id) {
     tasks.splice(card, 1);
     await backend.setItem('tasksAsJSON', JSON.stringify(tasks));
     init();
+    showPopup();
+}
+async function deleteTaskBig(id) {
+    getID('big-task-container').classList.add('d-none');
+    let card = tasks.findIndex(obj => obj.id == id);
+    tasks.splice(card, 1);
+    await backend.setItem('tasksAsJSON', JSON.stringify(tasks));
+    init();
+    showPopup();
 }
 
 function formateDate(dateStr) {
@@ -152,4 +193,8 @@ function nextSection(id, place) {
             break;
     }
     save()
+}
+
+function closeTask() {
+    getID('big-task-container').classList.add('d-none');
 }

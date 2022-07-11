@@ -32,7 +32,6 @@ h3 {
     background-color: rgba(0, 0, 0, 0.06);
     display: flex;
     justify-content: space-between;
-    width: 70%;
     border-radius: 10px;
 }
 
@@ -147,8 +146,8 @@ select {
     border-radius: 5px;
 }
 
-#description {
-    height: 75px;
+.inputs-decription {
+    resize: none;
 }
 
 #add-user {
@@ -218,11 +217,15 @@ select {
 }
 
 @media (max-width: 1000px) {
+    .add-task {
+        padding: 0;
+        width: 100%;
+    }
     .title {
         width: 90%;
     }
     .form {
-        width: 90%;
+        width: 100%;
     }
 }
 

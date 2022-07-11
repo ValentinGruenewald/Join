@@ -34,7 +34,7 @@ let currentUserId = 0;
 
 async function init() {
 
-    
+
 
     await downloadFromServer();
     let tasksAsJSON = await backend.getItem('tasksAsJSON');
@@ -57,4 +57,12 @@ async function init() {
         updateHTML();
     }
 
+}
+
+function showPopup() {
+    document.getElementById('popup').classList.add('popup');
+    document.getElementById('popup').style.top = `${window.scrollY + 50}px`;
+    setTimeout(() => {
+        document.getElementById('popup').classList.remove('popup');
+    }, 2000);
 }
